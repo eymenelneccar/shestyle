@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>شي ستايل</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             brand: {
-              50:  '#FFF0F5',
+              50: '#FFF0F5',
               100: '#FFE1EC',
               200: '#F9C0D4',
               300: '#F0A0BF',
@@ -29,30 +32,96 @@
     }
   </script>
   <style>
-    *, *::before, *::after { font-family: 'Tajawal', sans-serif; box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      font-family: 'Tajawal', sans-serif;
+      box-sizing: border-box;
+    }
+
     body {
       background: linear-gradient(160deg, #FFF0F5 0%, #FDE8F0 40%, #FFF5F8 70%, #FDE0EC 100%);
       min-height: 100vh;
     }
+
     /* Scrollbar hide */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
     /* Card shadow */
-    .card-shadow { box-shadow: 0 6px 24px rgba(201,106,138,0.13); }
-    .btn-shadow  { box-shadow: 0 8px 32px rgba(201,106,138,0.40); }
+    .card-shadow {
+      box-shadow: 0 6px 24px rgba(201, 106, 138, 0.13);
+    }
+
+    .btn-shadow {
+      box-shadow: 0 8px 32px rgba(201, 106, 138, 0.40);
+    }
 
     /* Category pill active */
-    .cat-pill-active  { background: #C96A8A; color: #fff; }
-    .cat-pill-inactive { background: #fff; color: #555; border: 1.5px solid #F9C0D4; }
+    .cat-pill-active {
+      background: #C96A8A;
+      color: #fff;
+    }
+
+    .cat-pill-inactive {
+      background: #fff;
+      color: #555;
+      border: 1.5px solid #F9C0D4;
+    }
 
     /* Animations */
-    @keyframes fadeUp  { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes bumpAnim { 0%,100%{transform:scale(1)} 40%{transform:scale(1.25)} 70%{transform:scale(0.92)} }
-    @keyframes shimmer { 0%{background-position:-400px 0} 100%{background-position:400px 0} }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
 
-    .fade-up    { animation: fadeUp 0.4s ease-out both; }
-    .bump       { animation: bumpAnim 0.35s ease; }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bumpAnim {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      40% {
+        transform: scale(1.25)
+      }
+
+      70% {
+        transform: scale(0.92)
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -400px 0
+      }
+
+      100% {
+        background-position: 400px 0
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.4s ease-out both;
+    }
+
+    .bump {
+      animation: bumpAnim 0.35s ease;
+    }
+
     .skeleton {
       background: linear-gradient(90deg, #f9e4ec 25%, #fff0f5 50%, #f9e4ec 75%);
       background-size: 800px 100%;
@@ -60,582 +129,650 @@
     }
 
     /* Hero */
-    #hero-banner { border-radius: 28px; overflow: hidden; box-shadow: 0 16px 48px rgba(201,106,138,0.22); }
+    #hero-banner {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(201, 106, 138, 0.22);
+    }
 
     /* Modal transition */
-    .modal-sheet { transition: transform 0.32s cubic-bezier(0.32,0.72,0,1); }
-    .backdrop-t  { transition: opacity 0.3s ease; }
+    .modal-sheet {
+      transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .backdrop-t {
+      transition: opacity 0.3s ease;
+    }
 
     /* Side drawer */
-    #sideDrawer { transition: transform 0.32s cubic-bezier(0.32,0.72,0,1); }
-    #sideDrawer.drawer-open  { transform: translateX(0) !important; }
-    #drawerBackdrop { transition: opacity 0.3s ease; }
+    #sideDrawer {
+      transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    #sideDrawer.drawer-open {
+      transform: translateX(0) !important;
+    }
+
+    #drawerBackdrop {
+      transition: opacity 0.3s ease;
+    }
+
     .drawer-nav-btn {
-      display:flex; align-items:center; gap:10px; width:100%;
-      text-align:right; padding:12px 14px; border-radius:14px;
-      font-size:15px; font-weight:700; color:#555;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: right;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #555;
       transition: background 0.18s, color 0.18s;
     }
-    .drawer-nav-btn:hover, .drawer-nav-btn.active {
-      background:#FFF0F5; color:#C96A8A;
+
+    .drawer-nav-btn:hover,
+    .drawer-nav-btn.active {
+      background: #FFF0F5;
+      color: #C96A8A;
     }
-    .drawer-nav-btn .material-symbols-outlined { font-size:20px; }
+
+    .drawer-nav-btn .material-symbols-outlined {
+      font-size: 20px;
+    }
   </style>
 </head>
+
 <body class="pb-36">
 
-<!-- ===== HEADER ===== -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-lg border-b border-brand-100/60"
-        style="box-shadow:0 2px 16px rgba(201,106,138,0.09)">
-  <div class="px-4 py-3 flex items-center justify-between gap-3">
+  <!-- ===== HEADER ===== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-lg border-b border-brand-100/60"
+    style="box-shadow:0 2px 16px rgba(201,106,138,0.09)">
+    <div class="px-4 py-3 flex items-center justify-between gap-3">
 
-    <!-- Left: Cart icon -->
-    <button onclick="openCart()"
-            class="relative w-10 h-10 flex items-center justify-center rounded-2xl bg-brand-50 text-brand-500 flex-shrink-0">
-      <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
-      <span id="header-badge"
-            class="absolute -top-1 -right-1 w-[18px] h-[18px] bg-brand-500 text-white text-[10px] font-black rounded-full items-center justify-center hidden flex">0</span>
-    </button>
-
-    <!-- Center: Brand -->
-    <div class="flex items-center gap-2 flex-1 justify-center">
-      <img id="headerLogo" src="logoo.png" onerror="this.style.display='none'"
-           class="w-9 h-9 rounded-full object-cover border-2 border-brand-200 flex-shrink-0" />
-      <h1 class="text-[17px] font-black text-gray-800 whitespace-nowrap" id="storeNameEl">شي ستايل</h1>
-    </div>
-
-    <!-- Right: Search + Menu -->
-    <div class="flex items-center gap-2 flex-shrink-0">
-      <button onclick="toggleSearch()"
-              class="w-10 h-10 flex items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
-        <span class="material-symbols-outlined text-[22px]">search</span>
+      <!-- Left: Cart icon -->
+      <button onclick="openCart()"
+        class="relative w-10 h-10 flex items-center justify-center rounded-2xl bg-brand-50 text-brand-500 flex-shrink-0">
+        <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+        <span id="header-badge"
+          class="absolute -top-1 -right-1 w-[18px] h-[18px] bg-brand-500 text-white text-[10px] font-black rounded-full items-center justify-center hidden flex">0</span>
       </button>
-      <button onclick="openDrawer()"
-              class="w-10 h-10 flex items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
-        <span class="material-symbols-outlined text-[22px]">menu</span>
-      </button>
-    </div>
-  </div>
 
-  <!-- Search bar -->
-  <div id="searchBar" class="hidden px-4 pb-3">
-    <div class="relative">
-      <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-brand-300 text-xl pointer-events-none">search</span>
-      <input id="searchInput" type="text" placeholder="ابحث في القائمة..."
-             class="w-full bg-brand-50 border border-brand-200 rounded-2xl py-2.5 pr-11 pl-4 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50">
-    </div>
-  </div>
-</header>
-
-<!-- ===== CATEGORY TABS ===== -->
-<nav class="fixed top-[61px] left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-100/50 py-3"
-     style="box-shadow:0 2px 12px rgba(201,106,138,0.06)">
-  <div class="flex gap-2.5 overflow-x-auto no-scrollbar px-4" id="categories-container">
-    <!-- Skeleton pills -->
-    <div class="flex-shrink-0 h-9 w-24 rounded-full skeleton"></div>
-    <div class="flex-shrink-0 h-9 w-28 rounded-full skeleton"></div>
-    <div class="flex-shrink-0 h-9 w-20 rounded-full skeleton"></div>
-    <div class="flex-shrink-0 h-9 w-26 rounded-full skeleton"></div>
-  </div>
-</nav>
-
-<!-- ===== MAIN CONTENT ===== -->
-<main class="mt-[120px] px-4 pt-5">
-
-  <!-- Hero banner -->
-  <div id="hero-banner" class="hidden mb-7 relative" style="height:210px">
-    <img id="heroImg" src="" alt="بن رضوان" class="hidden w-full h-full object-cover">
-    <video id="heroVideo" src="" class="hidden w-full h-full object-cover" playsinline muted loop></video>
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-t from-brand-700/60 via-transparent to-transparent" style="border-radius:28px;pointer-events:none"></div>
-    <div class="absolute bottom-5 right-5 left-5">
-      <p class="text-white text-xs opacity-80 mb-1">أجود أنواع القهوة • أفخم الأراكيل</p>
-    </div>
-  </div>
-
-  <!-- Popular section -->
-  <section id="popular-section" class="mb-8">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-xl font-black text-gray-800">الأكثر طلباً</h2>
-      <span class="text-sm text-brand-500 font-bold">الكل</span>
-    </div>
-    <div id="popular-grid" class="grid grid-cols-2 gap-4">
-      <!-- Skeleton cards -->
-      <div class="bg-white rounded-3xl overflow-hidden card-shadow"><div class="skeleton" style="height:200px"></div><div class="p-3"><div class="skeleton h-4 rounded mb-2 w-3/4"></div><div class="skeleton h-4 rounded w-1/2"></div></div></div>
-      <div class="bg-white rounded-3xl overflow-hidden card-shadow"><div class="skeleton" style="height:200px"></div><div class="p-3"><div class="skeleton h-4 rounded mb-2 w-3/4"></div><div class="skeleton h-4 rounded w-1/2"></div></div></div>
-      <div class="bg-white rounded-3xl overflow-hidden card-shadow"><div class="skeleton" style="height:200px"></div><div class="p-3"><div class="skeleton h-4 rounded mb-2 w-3/4"></div><div class="skeleton h-4 rounded w-1/2"></div></div></div>
-      <div class="bg-white rounded-3xl overflow-hidden card-shadow"><div class="skeleton" style="height:200px"></div><div class="p-3"><div class="skeleton h-4 rounded mb-2 w-3/4"></div><div class="skeleton h-4 rounded w-1/2"></div></div></div>
-    </div>
-  </section>
-
-  <!-- Category section -->
-  <section id="category-section">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-xl font-black text-gray-800" id="cat-title">
-        <span class="skeleton h-6 w-32 rounded inline-block"></span>
-      </h2>
-    </div>
-    <div id="menu-grid" class="grid grid-cols-2 gap-4">
-      <div class="bg-white rounded-3xl overflow-hidden card-shadow"><div class="skeleton" style="height:200px"></div><div class="p-3"><div class="skeleton h-4 rounded mb-2 w-3/4"></div><div class="skeleton h-4 rounded w-1/2"></div></div></div>
-      <div class="bg-white rounded-3xl overflow-hidden card-shadow"><div class="skeleton" style="height:200px"></div><div class="p-3"><div class="skeleton h-4 rounded mb-2 w-3/4"></div><div class="skeleton h-4 rounded w-1/2"></div></div></div>
-    </div>
-    <div id="menu-empty" class="hidden flex-col items-center justify-center py-20 text-center">
-      <span class="material-symbols-outlined text-5xl text-brand-200 mb-3">coffee_off</span>
-      <p class="text-gray-400 text-sm">لا توجد عناصر</p>
-    </div>
-  </section>
-
-</main>
-
-<!-- ===== FLOATING CART BUTTON ===== -->
-<div id="cart-fab" class="fixed bottom-6 left-4 right-4 z-40 hidden">
-  <button onclick="openCart()"
-          class="w-full bg-brand-500 text-white font-black py-4 px-5 rounded-3xl flex items-center justify-between active:scale-95 transition-transform btn-shadow">
-    <div class="flex items-center gap-3">
-      <div class="bg-white/20 w-10 h-10 rounded-2xl flex items-center justify-center">
-        <span class="material-symbols-outlined text-xl">shopping_bag</span>
-      </div>
-      <div class="text-right">
-        <div class="text-[11px] opacity-75 font-normal">سلة الطلب</div>
-        <div class="text-sm font-black"><span id="cart-count">0</span> عنصر</div>
-      </div>
-    </div>
-    <span class="font-black text-lg" id="cart-total">0</span>
-  </button>
-</div>
-
-<!-- ===== CART PANEL ===== -->
-<div id="cart-modal" class="fixed inset-0 z-50 hidden">
-  <div id="cart-backdrop" class="absolute inset-0 bg-black/30 backdrop-blur-sm backdrop-t opacity-0" onclick="closeCart()"></div>
-  <div id="cart-panel"
-       class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[32px] shadow-2xl modal-sheet"
-       style="transform:translateY(100%); max-height:90vh; overflow-y:auto">
-
-    <!-- Handle -->
-    <div class="flex justify-center pt-4 pb-1">
-      <div class="w-12 h-1.5 bg-brand-200 rounded-full"></div>
-    </div>
-
-    <!-- Header -->
-    <div class="flex items-center justify-between px-6 py-4 border-b border-brand-100">
-      <h3 class="text-[18px] font-black text-gray-800">ملخص الطلب</h3>
-      <button onclick="closeCart()"
-              class="w-9 h-9 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-500">
-        <span class="material-symbols-outlined text-xl">close</span>
-      </button>
-    </div>
-
-    <!-- Items list -->
-    <div id="cart-items" class="px-6 py-4 space-y-3" style="min-height:80px"></div>
-
-    <!-- Totals -->
-    <div class="mx-6 mb-4 bg-brand-50 rounded-3xl p-4">
-      <div class="flex justify-between text-gray-500 text-sm mb-2">
-        <span>المجموع الفرعي</span>
-        <span id="modal-subtotal">0 د.ع</span>
-      </div>
-      <div class="flex justify-between font-black text-xl text-brand-500 border-t border-brand-200/50 pt-3 mt-2">
-        <span>الإجمالي</span>
-        <span id="modal-total">0 د.ع</span>
-      </div>
-    </div>
-
-    <!-- Customer form -->
-    <div class="mx-6 mb-5 space-y-3">
-      <div class="grid grid-cols-2 gap-3">
-        <input id="custName" type="text" placeholder="الاسم"
-               class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full">
-        <input id="custPhone" type="tel" inputmode="tel" placeholder="رقم الهاتف"
-               class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full">
-      </div>
-      <input id="custAddress" type="text" placeholder="العنوان"
-             class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full">
-      <textarea id="custNote" rows="2" placeholder="ملاحظة (اختياري)"
-                class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full resize-none"></textarea>
-    </div>
-
-    <!-- Checkout btn -->
-    <div class="px-6 pb-10">
-      <button onclick="checkout()"
-              class="w-full bg-brand-500 text-white font-black py-4 rounded-3xl flex items-center justify-center gap-3 active:scale-[0.98] transition-transform btn-shadow">
-        <span class="material-symbols-outlined text-xl">send</span>
-        <span>إتمام الطلب عبر واتساب</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- ===== PRODUCT DETAIL MODAL ===== -->
-<div id="image-modal" class="fixed inset-0 z-50 hidden">
-  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeImageModal()"></div>
-  <div id="image-modal-content"
-       class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[32px] shadow-2xl modal-sheet overflow-hidden"
-       style="transform:translateY(100%); max-height:92vh">
-
-    <!-- Image -->
-    <div class="relative" style="height:300px; background:#FDE8F0">
-      <img id="modal-img" src="" alt=""
-           class="w-full h-full object-cover"
-           onerror="this.style.background='#FDE8F0'; this.style.opacity='0'">
-      <!-- Back btn -->
-      <button onclick="closeImageModal()"
-              class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg text-gray-700 active:scale-90 transition-transform">
-        <span class="material-symbols-outlined text-xl">keyboard_arrow_down</span>
-      </button>
-      <!-- Price badge -->
-      <div class="absolute bottom-4 left-4 bg-brand-500 text-white font-black text-sm px-4 py-2 rounded-2xl shadow-lg">
-        <span id="modal-price"></span>
-      </div>
-    </div>
-
-    <!-- Info -->
-    <div class="px-6 pt-5 pb-8 overflow-y-auto">
-      <h3 class="text-2xl font-black text-gray-800 mb-1" id="modal-title"></h3>
-      <p class="text-gray-500 text-sm leading-relaxed mb-4" id="modal-desc"></p>
-
-      <!-- Colors selector -->
-      <div id="modal-colors-section" class="hidden mb-4">
-        <p class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">اختر اللون</p>
-        <div id="modal-colors-row" class="flex gap-2 flex-wrap"></div>
+      <!-- Center: Brand -->
+      <div class="flex items-center gap-2 flex-1 justify-center">
+        <img id="headerLogo" src="logoo.png" onerror="this.style.display='none'"
+          class="w-9 h-9 rounded-full object-cover border-2 border-brand-200 flex-shrink-0" />
+        <h1 class="text-[17px] font-black text-gray-800 whitespace-nowrap" id="storeNameEl">شي ستايل</h1>
       </div>
 
-      <!-- Sizes selector -->
-      <div id="modal-sizes-section" class="hidden mb-5">
-        <div class="flex items-center justify-between mb-2">
-          <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">اختر المقاس</p>
-        </div>
-        <div id="modal-sizes-row" class="flex gap-2 flex-wrap"></div>
-      </div>
-
-      <!-- Actions -->
-      <div class="flex gap-3">
-        <button id="modal-add-btn"
-                class="flex-1 bg-brand-500 text-white font-black py-4 rounded-3xl flex items-center justify-center gap-2 active:scale-95 transition-transform btn-shadow">
-          <span class="material-symbols-outlined text-xl">shopping_bag</span>
-          <span>أضف للسلة</span>
+      <!-- Right: Search + Menu -->
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button onclick="toggleSearch()"
+          class="w-10 h-10 flex items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
+          <span class="material-symbols-outlined text-[22px]">search</span>
         </button>
+        <button onclick="openDrawer()"
+          class="w-10 h-10 flex items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
+          <span class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div id="searchBar" class="hidden px-4 pb-3">
+      <div class="relative">
+        <span
+          class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-brand-300 text-xl pointer-events-none">search</span>
+        <input id="searchInput" type="text" placeholder="ابحث في القائمة..."
+          class="w-full bg-brand-50 border border-brand-200 rounded-2xl py-2.5 pr-11 pl-4 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50">
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== CATEGORY TABS ===== -->
+  <nav class="fixed top-[61px] left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-100/50 py-3"
+    style="box-shadow:0 2px 12px rgba(201,106,138,0.06)">
+    <div class="flex gap-2.5 overflow-x-auto no-scrollbar px-4" id="categories-container">
+      <!-- Skeleton pills -->
+      <div class="flex-shrink-0 h-9 w-24 rounded-full skeleton"></div>
+      <div class="flex-shrink-0 h-9 w-28 rounded-full skeleton"></div>
+      <div class="flex-shrink-0 h-9 w-20 rounded-full skeleton"></div>
+      <div class="flex-shrink-0 h-9 w-26 rounded-full skeleton"></div>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="mt-[120px] px-4 pt-5">
+
+    <!-- Hero banner -->
+    <div id="hero-banner" class="hidden mb-7 relative" style="height:210px">
+      <img id="heroImg" src="" alt="بن رضوان" class="hidden w-full h-full object-cover">
+      <video id="heroVideo" src="" class="hidden w-full h-full object-cover" playsinline muted loop></video>
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-700/60 via-transparent to-transparent"
+        style="border-radius:28px;pointer-events:none"></div>
+      <div class="absolute bottom-5 right-5 left-5">
+        <p class="text-white text-xs opacity-80 mb-1">أناقة تليق بكِ مع شي ستايل • اجمل الملابس النسائية</p>
+      </div>
+    </div>
+
+    <!-- Popular section -->
+    <section id="popular-section" class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-black text-gray-800">الأكثر طلباً</h2>
+        <span class="text-sm text-brand-500 font-bold">الكل</span>
+      </div>
+      <div id="popular-grid" class="grid grid-cols-2 gap-4">
+        <!-- Skeleton cards -->
+        <div class="bg-white rounded-3xl overflow-hidden card-shadow">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="p-3">
+            <div class="skeleton h-4 rounded mb-2 w-3/4"></div>
+            <div class="skeleton h-4 rounded w-1/2"></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl overflow-hidden card-shadow">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="p-3">
+            <div class="skeleton h-4 rounded mb-2 w-3/4"></div>
+            <div class="skeleton h-4 rounded w-1/2"></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl overflow-hidden card-shadow">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="p-3">
+            <div class="skeleton h-4 rounded mb-2 w-3/4"></div>
+            <div class="skeleton h-4 rounded w-1/2"></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl overflow-hidden card-shadow">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="p-3">
+            <div class="skeleton h-4 rounded mb-2 w-3/4"></div>
+            <div class="skeleton h-4 rounded w-1/2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category section -->
+    <section id="category-section">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-black text-gray-800" id="cat-title">
+          <span class="skeleton h-6 w-32 rounded inline-block"></span>
+        </h2>
+      </div>
+      <div id="menu-grid" class="grid grid-cols-2 gap-4">
+        <div class="bg-white rounded-3xl overflow-hidden card-shadow">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="p-3">
+            <div class="skeleton h-4 rounded mb-2 w-3/4"></div>
+            <div class="skeleton h-4 rounded w-1/2"></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl overflow-hidden card-shadow">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="p-3">
+            <div class="skeleton h-4 rounded mb-2 w-3/4"></div>
+            <div class="skeleton h-4 rounded w-1/2"></div>
+          </div>
+        </div>
+      </div>
+      <div id="menu-empty" class="hidden flex-col items-center justify-center py-20 text-center">
+        <span class="material-symbols-outlined text-5xl text-brand-200 mb-3">coffee_off</span>
+        <p class="text-gray-400 text-sm">لا توجد عناصر</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FLOATING CART BUTTON ===== -->
+  <div id="cart-fab" class="fixed bottom-6 left-4 right-4 z-40 hidden">
+    <button onclick="openCart()"
+      class="w-full bg-brand-500 text-white font-black py-4 px-5 rounded-3xl flex items-center justify-between active:scale-95 transition-transform btn-shadow">
+      <div class="flex items-center gap-3">
+        <div class="bg-white/20 w-10 h-10 rounded-2xl flex items-center justify-center">
+          <span class="material-symbols-outlined text-xl">shopping_bag</span>
+        </div>
+        <div class="text-right">
+          <div class="text-[11px] opacity-75 font-normal">سلة الطلب</div>
+          <div class="text-sm font-black"><span id="cart-count">0</span> عنصر</div>
+        </div>
+      </div>
+      <span class="font-black text-lg" id="cart-total">0</span>
+    </button>
+  </div>
+
+  <!-- ===== CART PANEL ===== -->
+  <div id="cart-modal" class="fixed inset-0 z-50 hidden">
+    <div id="cart-backdrop" class="absolute inset-0 bg-black/30 backdrop-blur-sm backdrop-t opacity-0"
+      onclick="closeCart()"></div>
+    <div id="cart-panel" class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[32px] shadow-2xl modal-sheet"
+      style="transform:translateY(100%); max-height:90vh; overflow-y:auto">
+
+      <!-- Handle -->
+      <div class="flex justify-center pt-4 pb-1">
+        <div class="w-12 h-1.5 bg-brand-200 rounded-full"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-brand-100">
+        <h3 class="text-[18px] font-black text-gray-800">ملخص الطلب</h3>
+        <button onclick="closeCart()"
+          class="w-9 h-9 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-500">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <!-- Items list -->
+      <div id="cart-items" class="px-6 py-4 space-y-3" style="min-height:80px"></div>
+
+      <!-- Totals -->
+      <div class="mx-6 mb-4 bg-brand-50 rounded-3xl p-4">
+        <div class="flex justify-between text-gray-500 text-sm mb-2">
+          <span>المجموع الفرعي</span>
+          <span id="modal-subtotal">0 د.ع</span>
+        </div>
+        <div class="flex justify-between font-black text-xl text-brand-500 border-t border-brand-200/50 pt-3 mt-2">
+          <span>الإجمالي</span>
+          <span id="modal-total">0 د.ع</span>
+        </div>
+      </div>
+
+      <!-- Customer form -->
+      <div class="mx-6 mb-5 space-y-3">
+        <div class="grid grid-cols-2 gap-3">
+          <input id="custName" type="text" placeholder="الاسم"
+            class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full">
+          <input id="custPhone" type="tel" inputmode="tel" placeholder="رقم الهاتف"
+            class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full">
+        </div>
+        <input id="custAddress" type="text" placeholder="العنوان"
+          class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full">
+        <textarea id="custNote" rows="2" placeholder="ملاحظة (اختياري)"
+          class="border border-brand-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-200/50 w-full resize-none"></textarea>
+      </div>
+
+      <!-- Checkout btn -->
+      <div class="px-6 pb-10">
+        <button onclick="checkout()"
+          class="w-full bg-brand-500 text-white font-black py-4 rounded-3xl flex items-center justify-center gap-3 active:scale-[0.98] transition-transform btn-shadow">
+          <span class="material-symbols-outlined text-xl">send</span>
+          <span>إتمام الطلب عبر واتساب</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRODUCT DETAIL MODAL ===== -->
+  <div id="image-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeImageModal()"></div>
+    <div id="image-modal-content"
+      class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[32px] shadow-2xl modal-sheet overflow-hidden"
+      style="transform:translateY(100%); max-height:92vh">
+
+      <!-- Image -->
+      <div class="relative" style="height:300px; background:#FDE8F0">
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover"
+          onerror="if(typeof FALLBACK !== 'undefined') { this.src=FALLBACK; this.style.opacity='1'; } else { this.style.background='#FDE8F0'; this.style.opacity='0'; }">
+        <!-- Back btn -->
         <button onclick="closeImageModal()"
-                class="w-14 h-14 bg-brand-50 rounded-3xl flex items-center justify-center text-brand-500 active:scale-90 transition-transform">
+          class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg text-gray-700 active:scale-90 transition-transform">
+          <span class="material-symbols-outlined text-xl">keyboard_arrow_down</span>
+        </button>
+        <!-- Price badge -->
+        <div
+          class="absolute bottom-4 left-4 bg-brand-500 text-white font-black text-sm px-4 py-2 rounded-2xl shadow-lg">
+          <span id="modal-price"></span>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="px-6 pt-5 pb-8 overflow-y-auto">
+        <h3 class="text-2xl font-black text-gray-800 mb-1" id="modal-title"></h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4" id="modal-desc"></p>
+
+        <!-- Colors selector -->
+        <div id="modal-colors-section" class="hidden mb-4">
+          <p class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">اختر اللون</p>
+          <div id="modal-colors-row" class="flex gap-2 flex-wrap"></div>
+        </div>
+
+        <!-- Sizes selector -->
+        <div id="modal-sizes-section" class="hidden mb-5">
+          <div class="flex items-center justify-between mb-2">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">اختر المقاس</p>
+          </div>
+          <div id="modal-sizes-row" class="flex gap-2 flex-wrap"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-3">
+          <button id="modal-add-btn"
+            class="flex-1 bg-brand-500 text-white font-black py-4 rounded-3xl flex items-center justify-center gap-2 active:scale-95 transition-transform btn-shadow">
+            <span class="material-symbols-outlined text-xl">shopping_bag</span>
+            <span>أضف للسلة</span>
+          </button>
+          <button onclick="closeImageModal()"
+            class="w-14 h-14 bg-brand-50 rounded-3xl flex items-center justify-center text-brand-500 active:scale-90 transition-transform">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-5 text-xs text-gray-400">
+    <span id="footerStoreName">شي ستايل</span> &copy; جميع الحقوق محفوظة
+  </footer>
+
+  <!-- ===== SIDE DRAWER ===== -->
+  <div id="drawerBackdrop" onclick="closeDrawer()" class="fixed inset-0 bg-black/40 z-[60] hidden opacity-0 backdrop-t">
+  </div>
+
+  <div id="sideDrawer" class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white z-[70] flex flex-col shadow-2xl"
+    style="transform:translateX(100%)">
+
+    <!-- Drawer Header -->
+    <div class="bg-gradient-to-br from-brand-500 to-brand-700 p-5 text-white flex-shrink-0">
+      <div class="flex items-center justify-between mb-4">
+        <button onclick="closeDrawer()" class="text-white/70 hover:text-white">
           <span class="material-symbols-outlined">close</span>
         </button>
+        <span class="text-xs text-white/50">القائمة</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <img id="drawerLogo" src="logoo.png" onerror="this.style.display='none'"
+          class="w-12 h-12 rounded-full border-2 border-white/30 object-cover flex-shrink-0" />
+        <h2 id="drawerStoreName" class="text-lg font-black leading-tight">شي ستايل</h2>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- Footer -->
-<footer class="text-center py-5 text-xs text-gray-400">
-  <span id="footerStoreName">شي ستايل</span> &copy; جميع الحقوق محفوظة
-</footer>
-
-<!-- ===== SIDE DRAWER ===== -->
-<div id="drawerBackdrop" onclick="closeDrawer()"
-     class="fixed inset-0 bg-black/40 z-[60] hidden opacity-0 backdrop-t"></div>
-
-<div id="sideDrawer"
-     class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white z-[70] flex flex-col shadow-2xl"
-     style="transform:translateX(100%)">
-
-  <!-- Drawer Header -->
-  <div class="bg-gradient-to-br from-brand-500 to-brand-700 p-5 text-white flex-shrink-0">
-    <div class="flex items-center justify-between mb-4">
-      <button onclick="closeDrawer()" class="text-white/70 hover:text-white">
-        <span class="material-symbols-outlined">close</span>
+    <!-- Drawer Nav (main view) -->
+    <div id="drawerNav" class="flex-1 overflow-y-auto p-4 space-y-1">
+      <button class="drawer-nav-btn" onclick="closeDrawer()">
+        <span class="material-symbols-outlined">home</span> الرئيسية
       </button>
-      <span class="text-xs text-white/50">القائمة</span>
-    </div>
-    <div class="flex items-center gap-3">
-      <img id="drawerLogo" src="logoo.png" onerror="this.style.display='none'"
-           class="w-12 h-12 rounded-full border-2 border-white/30 object-cover flex-shrink-0" />
-      <h2 id="drawerStoreName" class="text-lg font-black leading-tight">شي ستايل</h2>
-    </div>
-  </div>
-
-  <!-- Drawer Nav (main view) -->
-  <div id="drawerNav" class="flex-1 overflow-y-auto p-4 space-y-1">
-    <button class="drawer-nav-btn" onclick="closeDrawer()">
-      <span class="material-symbols-outlined">home</span> الرئيسية
-    </button>
-    <button class="drawer-nav-btn" onclick="drawerShowPage('about')">
-      <span class="material-symbols-outlined">info</span> من نحن
-    </button>
-    <button class="drawer-nav-btn" onclick="drawerShowPage('contact')">
-      <span class="material-symbols-outlined">call</span> تواصل معنا
-    </button>
-  </div>
-
-  <!-- About Us page (inside drawer) -->
-  <div id="drawerAbout" class="flex-1 overflow-y-auto hidden flex-col">
-    <div class="flex items-center gap-2 px-4 py-3 border-b border-brand-100 flex-shrink-0">
-      <button onclick="drawerShowPage('nav')" class="text-brand-500">
-        <span class="material-symbols-outlined">arrow_forward_ios</span>
+      <button class="drawer-nav-btn" onclick="drawerShowPage('about')">
+        <span class="material-symbols-outlined">info</span> من نحن
       </button>
-      <h3 class="font-black text-gray-800 text-base">من نحن</h3>
+      <button class="drawer-nav-btn" onclick="drawerShowPage('contact')">
+        <span class="material-symbols-outlined">call</span> تواصل معنا
+      </button>
     </div>
-    <div class="p-5">
-      <div class="w-14 h-14 bg-brand-50 rounded-3xl flex items-center justify-center mb-4">
-        <span class="material-symbols-outlined text-brand-400 text-3xl">store</span>
+
+    <!-- About Us page (inside drawer) -->
+    <div id="drawerAbout" class="flex-1 overflow-y-auto hidden flex-col">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-brand-100 flex-shrink-0">
+        <button onclick="drawerShowPage('nav')" class="text-brand-500">
+          <span class="material-symbols-outlined">arrow_forward_ios</span>
+        </button>
+        <h3 class="font-black text-gray-800 text-base">من نحن</h3>
       </div>
-      <h4 id="aboutStoreName" class="text-xl font-black text-gray-800 mb-3">شي ستايل</h4>
-      <p id="aboutUsText" class="text-sm text-gray-600 leading-relaxed"></p>
+      <div class="p-5">
+        <div class="w-14 h-14 bg-brand-50 rounded-3xl flex items-center justify-center mb-4">
+          <span class="material-symbols-outlined text-brand-400 text-3xl">store</span>
+        </div>
+        <h4 id="aboutStoreName" class="text-xl font-black text-gray-800 mb-3">شي ستايل</h4>
+        <p id="aboutUsText" class="text-sm text-gray-600 leading-relaxed"></p>
+      </div>
+    </div>
+
+    <!-- Contact page (inside drawer) -->
+    <div id="drawerContact" class="flex-1 overflow-y-auto hidden flex-col">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-brand-100 flex-shrink-0">
+        <button onclick="drawerShowPage('nav')" class="text-brand-500">
+          <span class="material-symbols-outlined">arrow_forward_ios</span>
+        </button>
+        <h3 class="font-black text-gray-800 text-base">تواصل معنا</h3>
+      </div>
+      <div id="contactContent" class="p-5 space-y-3"></div>
     </div>
   </div>
 
-  <!-- Contact page (inside drawer) -->
-  <div id="drawerContact" class="flex-1 overflow-y-auto hidden flex-col">
-    <div class="flex items-center gap-2 px-4 py-3 border-b border-brand-100 flex-shrink-0">
-      <button onclick="drawerShowPage('nav')" class="text-brand-500">
-        <span class="material-symbols-outlined">arrow_forward_ios</span>
-      </button>
-      <h3 class="font-black text-gray-800 text-base">تواصل معنا</h3>
-    </div>
-    <div id="contactContent" class="p-5 space-y-3"></div>
-  </div>
-</div>
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    'use strict';
 
-<!-- ===== JAVASCRIPT ===== -->
-<script>
-'use strict';
+    let categories = [];
+    let menuItems = [];
+    let activeCategory = '';
+    let cart = {};
+    let whatsappNumber = '905347007284';
+    let currencySymbol = 'د.ع';
+    let storeName = 'شي ستايل';
+    let aboutUsText = '';
+    let contactPhone = '';
+    let contactWhatsapp = '';
+    let contactInstagram = '';
+    let contactAddress = '';
 
-let categories = [];
-let menuItems   = [];
-let activeCategory = '';
-let cart = {};
-let whatsappNumber = '9647750008441';
-let currencySymbol   = 'د.ع';
-let storeName        = 'شي ستايل';
-let aboutUsText      = '';
-let contactPhone     = '';
-let contactWhatsapp  = '';
-let contactInstagram = '';
-let contactAddress   = '';
+    // GitHub config (overridden by /api/config)
+    window.GH_OWNER = window.GH_OWNER || '';
+    window.GH_REPO = window.GH_REPO || '';
+    window.GH_BRANCH = window.GH_BRANCH || 'main';
 
-// GitHub config (overridden by /api/config)
-window.GH_OWNER  = window.GH_OWNER  || '';
-window.GH_REPO   = window.GH_REPO   || '';
-window.GH_BRANCH = window.GH_BRANCH || 'main';
+    const isGhEnabled = () => Boolean(window.GH_OWNER && window.GH_REPO);
 
-const isGhEnabled = () => Boolean(window.GH_OWNER && window.GH_REPO);
+    function ghUrls(path) {
+      const t = Date.now();
+      const p = String(path || '').replace(/^\//, '');
+      return [
+        `https://raw.githubusercontent.com/${window.GH_OWNER}/${window.GH_REPO}/${window.GH_BRANCH}/${p}?t=${t}`,
+        `https://cdn.jsdelivr.net/gh/${window.GH_OWNER}/${window.GH_REPO}@${window.GH_BRANCH}/${p}?t=${t}`
+      ];
+    }
 
-function ghUrls(path) {
-  const t = Date.now();
-  const p = String(path || '').replace(/^\//, '');
-  return [
-    `https://raw.githubusercontent.com/${window.GH_OWNER}/${window.GH_REPO}/${window.GH_BRANCH}/${p}?t=${t}`,
-    `https://cdn.jsdelivr.net/gh/${window.GH_OWNER}/${window.GH_REPO}@${window.GH_BRANCH}/${p}?t=${t}`
-  ];
-}
+    async function initDataRepoConfig() {
+      if (isGhEnabled()) return;
+      try {
+        const resp = await fetch('/api/config');
+        if (resp.ok) {
+          const j = await resp.json();
+          if (j && j.ok && j.owner && j.repo) {
+            window.GH_OWNER = j.owner;
+            window.GH_REPO = j.repo;
+            window.GH_BRANCH = j.branch || 'main';
+          }
+        }
+      } catch { }
+    }
 
-async function initDataRepoConfig() {
-  if (isGhEnabled()) return;
-  try {
-    const resp = await fetch('/api/config');
-    if (resp.ok) {
-      const j = await resp.json();
-      if (j && j.ok && j.owner && j.repo) {
-        window.GH_OWNER  = j.owner;
-        window.GH_REPO   = j.repo;
-        window.GH_BRANCH = j.branch || 'main';
+    function resolveAssetUrl(path) {
+      const raw = String(path || '').trim();
+      if (!raw) return '';
+      if (/^(?:https?:)?\/\//i.test(raw)) return raw;
+      const rel = raw.replace(/^\//, '');
+      if (!isGhEnabled()) return rel;
+      if (!/^assets\//.test(rel)) return raw;
+      return `https://raw.githubusercontent.com/${window.GH_OWNER}/${window.GH_REPO}/${window.GH_BRANCH}/${rel}`;
+    }
+
+    async function loadJson(path) {
+      try {
+        if (isGhEnabled()) {
+          for (const url of ghUrls(path)) {
+            try {
+              const r = await fetch(url, { cache: 'no-store' });
+              if (r.ok) return await r.json();
+            } catch { }
+          }
+        }
+        const t = Date.now();
+        const base = String(path || '');
+        const url = base + (base.includes('?') ? '&' : '?') + 't=' + t;
+        const r = await fetch(url, { cache: 'no-store' });
+        return r.ok ? await r.json() : [];
+      } catch { return []; }
+    }
+
+    function sanitizeCategory(c) {
+      if (typeof c === 'string') { const n = c.trim(); return n ? { id: n, name: n } : null; }
+      if (c && typeof c === 'object') { const n = (c.name || '').trim(); return n ? { id: n, name: n } : null; }
+      return null;
+    }
+
+    function sanitizeItem(i, idx) {
+      return {
+        id: Number(i && i.id) || (idx + 1),
+        category: String(i && i.category || '').trim(),
+        name: String(i && i.name || '').trim(),
+        price: Number(i && i.price) || 0,
+        desc: String(i && i.description || i && i.desc || '').trim(),
+        image: resolveAssetUrl(String(i && i.imageUrl || '').trim())
+      };
+    }
+
+    // ─── Data init ───────────────────────────────────────────────
+    async function loadSettings() {
+      // localStorage first (dashboard saves here instantly)
+      try {
+        const ls_name = localStorage.getItem('store_name');
+        const ls_sym = localStorage.getItem('store_currency_symbol');
+        const ls_about = localStorage.getItem('store_about');
+        const ls_phone = localStorage.getItem('store_contact_phone');
+        const ls_wa = localStorage.getItem('store_contact_whatsapp');
+        const ls_insta = localStorage.getItem('store_contact_instagram');
+        const ls_address = localStorage.getItem('store_contact_address');
+        if (ls_name) storeName = ls_name;
+        if (ls_sym) currencySymbol = ls_sym;
+        if (ls_about) aboutUsText = ls_about;
+        if (ls_phone) contactPhone = ls_phone;
+        if (ls_wa) contactWhatsapp = ls_wa;
+        if (ls_insta) contactInstagram = ls_insta;
+        if (ls_address) contactAddress = ls_address;
+      } catch { }
+      // then try assets/settings.json
+      try {
+        const s = await loadJson('assets/settings.json');
+        if (s && typeof s === 'object') {
+          if (s.storeName && !localStorage.getItem('store_name')) storeName = s.storeName;
+          if (s.currencySymbol && !localStorage.getItem('store_currency_symbol')) currencySymbol = s.currencySymbol;
+          if (s.aboutUs && !localStorage.getItem('store_about')) aboutUsText = s.aboutUs;
+          if (s.contactPhone && !localStorage.getItem('store_contact_phone')) contactPhone = s.contactPhone;
+          if (s.contactWhatsapp && !localStorage.getItem('store_contact_whatsapp')) contactWhatsapp = s.contactWhatsapp;
+          if (s.contactInstagram && !localStorage.getItem('store_contact_instagram')) contactInstagram = s.contactInstagram;
+          if (s.contactAddress && !localStorage.getItem('store_contact_address')) contactAddress = s.contactAddress;
+        }
+      } catch { }
+      // apply to UI
+      const storeEl = document.getElementById('storeNameEl');
+      if (storeEl) storeEl.textContent = storeName;
+      const footerEl = document.getElementById('footerStoreName');
+      if (footerEl) footerEl.textContent = storeName;
+      const drawerNameEl = document.getElementById('drawerStoreName');
+      if (drawerNameEl) drawerNameEl.textContent = storeName;
+      const aboutNameEl = document.getElementById('aboutStoreName');
+      if (aboutNameEl) aboutNameEl.textContent = storeName;
+      document.title = storeName;
+    }
+
+    async function initData() {
+      const [cats, items, branchData] = await Promise.all([
+        loadJson('assets/categories.json'),
+        loadJson('assets/menu.json'),
+        loadJson('assets/branches.json')
+      ]);
+
+      // WhatsApp number from branches.json
+      if (branchData && typeof branchData === 'object') {
+        const first = Object.values(branchData)[0];
+        if (first && first.whatsapp) whatsappNumber = first.whatsapp;
       }
+
+      categories = Array.isArray(cats) ? cats.map(sanitizeCategory).filter(Boolean) : [];
+      menuItems = Array.isArray(items) ? items.map(sanitizeItem) : [];
+      activeCategory = categories[0]?.id || menuItems[0]?.category || '';
+
+      renderCategories();
+      renderPopular();
+      renderMenu();
     }
-  } catch {}
-}
 
-function resolveAssetUrl(path) {
-  const raw = String(path || '').trim();
-  if (!raw) return '';
-  if (/^(?:https?:)?\/\//i.test(raw)) return raw;
-  if (!isGhEnabled()) return raw;
-  const rel = raw.replace(/^\//, '');
-  if (!/^assets\//.test(rel)) return raw;
-  return `https://raw.githubusercontent.com/${window.GH_OWNER}/${window.GH_REPO}/${window.GH_BRANCH}/${rel}`;
-}
+    async function loadHero() {
+      try {
+        const data = await loadJson('assets/hero.json');
+        if (!data || typeof data !== 'object') return;
+        const imgUrl = String(data.imageUrl || '').trim();
+        const videoUrl = String(data.videoUrl || '').trim();
+        const type = String(data.mediaType || 'image').toLowerCase();
+        const banner = document.getElementById('hero-banner');
+        const imgEl = document.getElementById('heroImg');
+        const vidEl = document.getElementById('heroVideo');
 
-async function loadJson(path) {
-  try {
-    if (isGhEnabled()) {
-      for (const url of ghUrls(path)) {
-        try {
-          const r = await fetch(url, { cache: 'no-store' });
-          if (r.ok) return await r.json();
-        } catch {}
-      }
+        if (type === 'video' && videoUrl) {
+          vidEl.src = resolveAssetUrl(videoUrl);
+          vidEl.classList.remove('hidden');
+          banner.classList.remove('hidden');
+          try { vidEl.play().catch(() => { }); } catch { }
+        } else if (imgUrl) {
+          imgEl.src = resolveAssetUrl(imgUrl);
+          imgEl.classList.remove('hidden');
+          banner.classList.remove('hidden');
+        }
+      } catch { }
     }
-    const t = Date.now();
-    const base = String(path || '');
-    const url = base + (base.includes('?') ? '&' : '?') + 't=' + t;
-    const r = await fetch(url, { cache: 'no-store' });
-    return r.ok ? await r.json() : [];
-  } catch { return []; }
-}
 
-function sanitizeCategory(c) {
-  if (typeof c === 'string') { const n = c.trim(); return n ? { id: n, name: n } : null; }
-  if (c && typeof c === 'object') { const n = (c.name || '').trim(); return n ? { id: n, name: n } : null; }
-  return null;
-}
-
-function sanitizeItem(i, idx) {
-  return {
-    id:       Number(i && i.id) || (idx + 1),
-    category: String(i && i.category || '').trim(),
-    name:     String(i && i.name     || '').trim(),
-    price:    Number(i && i.price)   || 0,
-    desc:     String(i && i.description || i && i.desc || '').trim(),
-    image:    resolveAssetUrl(String(i && i.imageUrl || '').trim())
-  };
-}
-
-// ─── Data init ───────────────────────────────────────────────
-async function loadSettings() {
-  // localStorage first (dashboard saves here instantly)
-  try {
-    const ls_name    = localStorage.getItem('store_name');
-    const ls_sym     = localStorage.getItem('store_currency_symbol');
-    const ls_about   = localStorage.getItem('store_about');
-    const ls_phone   = localStorage.getItem('store_contact_phone');
-    const ls_wa      = localStorage.getItem('store_contact_whatsapp');
-    const ls_insta   = localStorage.getItem('store_contact_instagram');
-    const ls_address = localStorage.getItem('store_contact_address');
-    if (ls_name)    storeName        = ls_name;
-    if (ls_sym)     currencySymbol   = ls_sym;
-    if (ls_about)   aboutUsText      = ls_about;
-    if (ls_phone)   contactPhone     = ls_phone;
-    if (ls_wa)      contactWhatsapp  = ls_wa;
-    if (ls_insta)   contactInstagram = ls_insta;
-    if (ls_address) contactAddress   = ls_address;
-  } catch {}
-  // then try assets/settings.json
-  try {
-    const s = await loadJson('assets/settings.json');
-    if (s && typeof s === 'object') {
-      if (s.storeName     && !localStorage.getItem('store_name'))                  storeName        = s.storeName;
-      if (s.currencySymbol && !localStorage.getItem('store_currency_symbol'))      currencySymbol   = s.currencySymbol;
-      if (s.aboutUs       && !localStorage.getItem('store_about'))                 aboutUsText      = s.aboutUs;
-      if (s.contactPhone  && !localStorage.getItem('store_contact_phone'))         contactPhone     = s.contactPhone;
-      if (s.contactWhatsapp && !localStorage.getItem('store_contact_whatsapp'))    contactWhatsapp  = s.contactWhatsapp;
-      if (s.contactInstagram && !localStorage.getItem('store_contact_instagram'))  contactInstagram = s.contactInstagram;
-      if (s.contactAddress && !localStorage.getItem('store_contact_address'))      contactAddress   = s.contactAddress;
-    }
-  } catch {}
-  // apply to UI
-  const storeEl = document.getElementById('storeNameEl');
-  if (storeEl) storeEl.textContent = storeName;
-  const footerEl = document.getElementById('footerStoreName');
-  if (footerEl) footerEl.textContent = storeName;
-  const drawerNameEl = document.getElementById('drawerStoreName');
-  if (drawerNameEl) drawerNameEl.textContent = storeName;
-  const aboutNameEl = document.getElementById('aboutStoreName');
-  if (aboutNameEl) aboutNameEl.textContent = storeName;
-  document.title = storeName;
-}
-
-async function initData() {
-  const [cats, items, branchData] = await Promise.all([
-    loadJson('assets/categories.json'),
-    loadJson('assets/menu.json'),
-    loadJson('assets/branches.json')
-  ]);
-
-  // WhatsApp number from branches.json
-  if (branchData && typeof branchData === 'object') {
-    const first = Object.values(branchData)[0];
-    if (first && first.whatsapp) whatsappNumber = first.whatsapp;
-  }
-
-  categories = Array.isArray(cats)   ? cats.map(sanitizeCategory).filter(Boolean) : [];
-  menuItems  = Array.isArray(items)  ? items.map(sanitizeItem)                    : [];
-  activeCategory = categories[0]?.id || menuItems[0]?.category || '';
-
-  renderCategories();
-  renderPopular();
-  renderMenu();
-}
-
-async function loadHero() {
-  try {
-    const data = await loadJson('assets/hero.json');
-    if (!data || typeof data !== 'object') return;
-    const imgUrl   = String(data.imageUrl   || '').trim();
-    const videoUrl = String(data.videoUrl   || '').trim();
-    const type     = String(data.mediaType  || 'image').toLowerCase();
-    const banner   = document.getElementById('hero-banner');
-    const imgEl    = document.getElementById('heroImg');
-    const vidEl    = document.getElementById('heroVideo');
-
-    if (type === 'video' && videoUrl) {
-      vidEl.src = resolveAssetUrl(videoUrl);
-      vidEl.classList.remove('hidden');
-      banner.classList.remove('hidden');
-      try { vidEl.play().catch(() => {}); } catch {}
-    } else if (imgUrl) {
-      imgEl.src = resolveAssetUrl(imgUrl);
-      imgEl.classList.remove('hidden');
-      banner.classList.remove('hidden');
-    }
-  } catch {}
-}
-
-// ─── Render categories ───────────────────────────────────────
-function renderCategories() {
-  const container = document.getElementById('categories-container');
-  container.innerHTML = categories.map((cat, i) => `
+    // ─── Render categories ───────────────────────────────────────
+    function renderCategories() {
+      const container = document.getElementById('categories-container');
+      container.innerHTML = categories.map((cat, i) => `
     <button onclick="setCategory('${cat.id}')"
-            class="flex-shrink-0 px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
-              activeCategory === cat.id ? 'cat-pill-active' : 'cat-pill-inactive'
-            }" style="animation-delay:${i * 40}ms">
+            class="flex-shrink-0 px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 ${activeCategory === cat.id ? 'cat-pill-active' : 'cat-pill-inactive'
+        }" style="animation-delay:${i * 40}ms">
       ${cat.name}
     </button>
   `).join('');
-}
+    }
 
-function setCategory(id) {
-  activeCategory = id;
-  renderCategories();
-  renderMenu();
-  const el = document.getElementById('category-section');
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+    function setCategory(id) {
+      activeCategory = id;
+      renderCategories();
+      renderMenu();
+      const el = document.getElementById('category-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
-// ─── Render popular ──────────────────────────────────────────
-function renderPopular() {
-  const grid = document.getElementById('popular-grid');
-  const pop  = menuItems.slice(0, 4);
-  grid.innerHTML = pop.length ? pop.map(buildCard).join('') : '';
-}
+    // ─── Render popular ──────────────────────────────────────────
+    function renderPopular() {
+      const grid = document.getElementById('popular-grid');
+      const pop = menuItems.slice(0, 4);
+      grid.innerHTML = pop.length ? pop.map(buildCard).join('') : '';
+    }
 
-// ─── Render menu ─────────────────────────────────────────────
-function renderMenu(items = null, isSearch = false) {
-  const grid  = document.getElementById('menu-grid');
-  const empty = document.getElementById('menu-empty');
-  const title = document.getElementById('cat-title');
+    // ─── Render menu ─────────────────────────────────────────────
+    function renderMenu(items = null, isSearch = false) {
+      const grid = document.getElementById('menu-grid');
+      const empty = document.getElementById('menu-empty');
+      const title = document.getElementById('cat-title');
 
-  const list = items !== null ? items : menuItems.filter(i => i.category === activeCategory);
+      const list = items !== null ? items : menuItems.filter(i => i.category === activeCategory);
 
-  if (!isSearch && items === null) {
-    const cat = categories.find(c => c.id === activeCategory);
-    title.textContent = cat ? cat.name : '';
-  } else {
-    title.textContent = 'نتائج البحث';
-  }
+      if (!isSearch && items === null) {
+        const cat = categories.find(c => c.id === activeCategory);
+        title.textContent = cat ? cat.name : '';
+      } else {
+        title.textContent = 'نتائج البحث';
+      }
 
-  if (list.length === 0) {
-    grid.innerHTML = '';
-    empty.classList.remove('hidden');
-    empty.style.display = 'flex';
-    return;
-  }
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        empty.style.display = 'flex';
+        return;
+      }
 
-  empty.classList.add('hidden');
-  empty.style.display = '';
-  grid.innerHTML = list.map(buildCard).join('');
-}
+      empty.classList.add('hidden');
+      empty.style.display = '';
+      grid.innerHTML = list.map(buildCard).join('');
+    }
 
-// ─── Build product card ──────────────────────────────────────
-const FALLBACK = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect fill='%23FDE8F0' width='200' height='200'/><text fill='%23E07FA8' font-size='40' text-anchor='middle' x='100' y='115' font-family='sans-serif'>☕</text></svg>`;
+    // ─── Build product card ──────────────────────────────────────
+    const FALLBACK = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect fill='%23FDE8F0' width='200' height='200'/><text fill='%23E07FA8' font-size='40' text-anchor='middle' x='100' y='115' font-family='sans-serif'>☕</text></svg>`;
 
-function buildCard(item) {
-  return `
+    function buildCard(item) {
+      return `
     <div onclick="openImageModal(${item.id})"
          class="bg-white rounded-3xl overflow-hidden cursor-pointer active:scale-95 transition-transform duration-150 card-shadow fade-up">
       <!-- Image -->
@@ -655,80 +792,86 @@ function buildCard(item) {
       <div class="p-3">
         <h3 class="font-bold text-gray-800 text-sm mb-1 truncate">${item.name}</h3>
         <p class="text-brand-500 font-black text-[15px]">${item.price.toLocaleString()} <span class="text-xs font-semibold text-brand-400">${currencySymbol}</span></p>
-        ${Array.isArray(item.colors) && item.colors.length ? `<div class="flex gap-1 mt-1.5 flex-wrap">${item.colors.map(c=>`<span style="background:${c};width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.1)" title="${c}"></span>`).join('')}</div>` : ''}
+        ${Array.isArray(item.colors) && item.colors.length ? `<div class="flex gap-1 mt-1.5 flex-wrap">${item.colors.map(c => `<span style="background:${c};width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.1)" title="${c}"></span>`).join('')}</div>` : ''}
       </div>
     </div>
   `;
-}
+    }
 
-// ─── Cart logic ──────────────────────────────────────────────
-function addToCartWithOptions(id, color, size, variantPrice) {
-  const item = menuItems.find(i => i.id === id);
-  if (!item) return;
-  // key includes color+size so different options are separate cart entries
-  const key = `${id}__${color || ''}__${size || ''}`;
-  const price = (variantPrice && Number(variantPrice) > 0) ? Number(variantPrice) : item.price;
-  if (cart[key]) {
-    cart[key].qty++;
-  } else {
-    cart[key] = { ...item, price, qty: 1, selectedColor: color || null, selectedSize: size || null, cartKey: key };
-  }
-  updateCartUI();
-  const badge = document.getElementById('header-badge');
-  badge.classList.add('bump');
-  setTimeout(() => badge.classList.remove('bump'), 350);
-}
+    // ─── Cart logic ──────────────────────────────────────────────
+    function addToCartWithOptions(id, color, size, variantPrice) {
+      const item = menuItems.find(i => i.id === id);
+      if (!item) return;
+      // key includes color+size so different options are separate cart entries
+      const key = `${id}__${color || ''}__${size || ''}`;
+      const price = (variantPrice && Number(variantPrice) > 0) ? Number(variantPrice) : item.price;
+      if (cart[key]) {
+        cart[key].qty++;
+      } else {
+        cart[key] = { ...item, price, qty: 1, selectedColor: color || null, selectedSize: size || null, cartKey: key };
+      }
+      updateCartUI();
+      const badge = document.getElementById('header-badge');
+      badge.classList.add('bump');
+      setTimeout(() => badge.classList.remove('bump'), 350);
+    }
 
-function addToCart(id) {
-  const item = menuItems.find(i => i.id === id);
-  if (!item) return;
-  if (cart[id]) cart[id].qty++; else cart[id] = { ...item, qty: 1, cartKey: String(id) };
-  updateCartUI();
+    function addToCart(id) {
+      const item = menuItems.find(i => i.id === id);
+      if (!item) return;
+      if (cart[id]) cart[id].qty++; else cart[id] = { ...item, qty: 1, cartKey: String(id) };
+      updateCartUI();
 
-  const badge = document.getElementById('header-badge');
-  badge.classList.add('bump');
-  setTimeout(() => badge.classList.remove('bump'), 350);
-}
+      const badge = document.getElementById('header-badge');
+      badge.classList.add('bump');
+      setTimeout(() => badge.classList.remove('bump'), 350);
+    }
 
-function removeFromCart(key) {
-  if (!cart[key]) return;
-  cart[key].qty--;
-  if (cart[key].qty <= 0) delete cart[key];
-  updateCartUI();
-}
+    function removeFromCart(key) {
+      if (!cart[key]) return;
+      cart[key].qty--;
+      if (cart[key].qty <= 0) delete cart[key];
+      updateCartUI();
+    }
 
-function updateCartUI() {
-  const totalQty   = Object.values(cart).reduce((a, b) => a + b.qty, 0);
-  const totalPrice = Object.values(cart).reduce((a, b) => a + (b.price * b.qty), 0);
+    function incrementCart(key) {
+      if (!cart[key]) return;
+      cart[key].qty++;
+      updateCartUI();
+    }
 
-  // Header badge
-  const badge = document.getElementById('header-badge');
-  if (totalQty > 0) { badge.textContent = totalQty; badge.classList.remove('hidden'); badge.style.display = 'flex'; }
-  else              { badge.classList.add('hidden'); badge.style.display = ''; }
+    function updateCartUI() {
+      const totalQty = Object.values(cart).reduce((a, b) => a + b.qty, 0);
+      const totalPrice = Object.values(cart).reduce((a, b) => a + (b.price * b.qty), 0);
 
-  // FAB
-  const fab = document.getElementById('cart-fab');
-  if (totalQty > 0) { fab.classList.remove('hidden'); }
-  else              { fab.classList.add('hidden'); closeCart(); }
+      // Header badge
+      const badge = document.getElementById('header-badge');
+      if (totalQty > 0) { badge.textContent = totalQty; badge.classList.remove('hidden'); badge.style.display = 'flex'; }
+      else { badge.classList.add('hidden'); badge.style.display = ''; }
 
-  document.getElementById('cart-count').textContent = totalQty;
-  document.getElementById('cart-total').textContent  = totalPrice.toLocaleString() + ' ' + currencySymbol;
+      // FAB
+      const fab = document.getElementById('cart-fab');
+      if (totalQty > 0) { fab.classList.remove('hidden'); }
+      else { fab.classList.add('hidden'); closeCart(); }
 
-  renderCartItems(totalPrice);
-}
+      document.getElementById('cart-count').textContent = totalQty;
+      document.getElementById('cart-total').textContent = totalPrice.toLocaleString() + ' ' + currencySymbol;
 
-function renderCartItems(total) {
-  const container = document.getElementById('cart-items');
-  if (Object.keys(cart).length === 0) {
-    container.innerHTML = '<div class="text-center text-gray-400 py-8 text-sm">سلتك فارغة</div>';
-    return;
-  }
+      renderCartItems(totalPrice);
+    }
 
-  container.innerHTML = Object.values(cart).map(item => {
-    const key = item.cartKey || item.id;
-    const colorDot = item.selectedColor ? `<span style="background:${item.selectedColor};width:10px;height:10px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,0.15);margin-left:3px"></span>` : '';
-    const sizeBadge = item.selectedSize ? `<span class="bg-brand-100 text-brand-600 text-[10px] font-bold px-1.5 py-0.5 rounded-full">${item.selectedSize}</span>` : '';
-    return `
+    function renderCartItems(total) {
+      const container = document.getElementById('cart-items');
+      if (Object.keys(cart).length === 0) {
+        container.innerHTML = '<div class="text-center text-gray-400 py-8 text-sm">سلتك فارغة</div>';
+        return;
+      }
+
+      container.innerHTML = Object.values(cart).map(item => {
+        const key = item.cartKey || item.id;
+        const colorDot = item.selectedColor ? `<span style="background:${item.selectedColor};width:10px;height:10px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,0.15);margin-left:3px"></span>` : '';
+        const sizeBadge = item.selectedSize ? `<span class="bg-brand-100 text-brand-600 text-[10px] font-bold px-1.5 py-0.5 rounded-full">${item.selectedSize}</span>` : '';
+        return `
     <div class="flex items-center gap-3 bg-brand-50 rounded-2xl p-3">
       <img src="${item.image || FALLBACK}"
            onerror="this.src='${FALLBACK}'"
@@ -739,265 +882,267 @@ function renderCartItems(total) {
         <p class="text-brand-500 font-black text-sm mt-0.5">${(item.price * item.qty).toLocaleString()} ${currencySymbol}</p>
       </div>
       <div class="flex flex-col items-center gap-0.5 bg-white rounded-2xl py-1.5 px-1 w-9 shadow-sm border border-brand-100">
-        <button onclick="addToCartWithOptions(${item.id},'${item.selectedColor||''}','${item.selectedSize||''}',${item.price})" class="w-7 h-7 flex items-center justify-center text-brand-500 font-black text-lg leading-none">+</button>
+        <button onclick="incrementCart('${key}')" class="w-7 h-7 flex items-center justify-center text-brand-500 font-black text-lg leading-none">+</button>
         <span class="text-sm font-black text-gray-800">${item.qty}</span>
         <button onclick="removeFromCart('${key}')" class="w-7 h-7 flex items-center justify-center text-gray-400 hover:text-red-400 font-black text-xl leading-none">−</button>
       </div>
     </div>
   `}).join('');
 
-  document.getElementById('modal-subtotal').textContent = total.toLocaleString() + ' ' + currencySymbol;
-  document.getElementById('modal-total').textContent    = total.toLocaleString() + ' ' + currencySymbol;
-}
-
-// ─── Open / close cart ───────────────────────────────────────
-function openCart() {
-  const modal    = document.getElementById('cart-modal');
-  const panel    = document.getElementById('cart-panel');
-  const backdrop = document.getElementById('cart-backdrop');
-
-  // Restore saved form values
-  try {
-    const map = { custName:'order_name', custPhone:'order_phone', custAddress:'order_address', custNote:'order_note' };
-    for (const [id, key] of Object.entries(map)) {
-      const el = document.getElementById(id);
-      if (el) el.value = localStorage.getItem(key) || '';
+      document.getElementById('modal-subtotal').textContent = total.toLocaleString() + ' ' + currencySymbol;
+      document.getElementById('modal-total').textContent = total.toLocaleString() + ' ' + currencySymbol;
     }
-  } catch {}
 
-  modal.classList.remove('hidden');
-  requestAnimationFrame(() => {
-    backdrop.style.opacity = '1';
-    panel.style.transform  = 'translateY(0)';
-  });
-}
+    // ─── Open / close cart ───────────────────────────────────────
+    function openCart() {
+      const modal = document.getElementById('cart-modal');
+      const panel = document.getElementById('cart-panel');
+      const backdrop = document.getElementById('cart-backdrop');
 
-function closeCart() {
-  const modal    = document.getElementById('cart-modal');
-  const panel    = document.getElementById('cart-panel');
-  const backdrop = document.getElementById('cart-backdrop');
+      // Restore saved form values
+      try {
+        const map = { custName: 'order_name', custPhone: 'order_phone', custAddress: 'order_address', custNote: 'order_note' };
+        for (const [id, key] of Object.entries(map)) {
+          const el = document.getElementById(id);
+          if (el) el.value = localStorage.getItem(key) || '';
+        }
+      } catch { }
 
-  panel.style.transform  = 'translateY(100%)';
-  backdrop.style.opacity = '0';
-  setTimeout(() => modal.classList.add('hidden'), 320);
-}
+      modal.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        backdrop.style.opacity = '1';
+        panel.style.transform = 'translateY(0)';
+      });
+    }
 
-// ─── Product detail modal ────────────────────────────────────
-let _modalSelectedColor = null;
-let _modalSelectedSize  = null;
-let _modalSelectedVariantPrice = null;
+    function closeCart() {
+      const modal = document.getElementById('cart-modal');
+      const panel = document.getElementById('cart-panel');
+      const backdrop = document.getElementById('cart-backdrop');
 
-function openImageModal(id) {
-  const item    = menuItems.find(i => i.id === id);
-  if (!item) return;
-  const modal   = document.getElementById('image-modal');
-  const content = document.getElementById('image-modal-content');
+      panel.style.transform = 'translateY(100%)';
+      backdrop.style.opacity = '0';
+      setTimeout(() => modal.classList.add('hidden'), 320);
+    }
 
-  _modalSelectedColor        = null;
-  _modalSelectedSize         = null;
-  _modalSelectedVariantPrice = null;
+    // ─── Product detail modal ────────────────────────────────────
+    let _modalSelectedColor = null;
+    let _modalSelectedSize = null;
+    let _modalSelectedVariantPrice = null;
 
-  document.getElementById('modal-img').src           = item.image || FALLBACK;
-  document.getElementById('modal-title').textContent  = item.name;
-  document.getElementById('modal-desc').textContent   = item.desc || '';
-  document.getElementById('modal-price').textContent  = item.price.toLocaleString() + ' ' + currencySymbol;
+    function openImageModal(id) {
+      const item = menuItems.find(i => i.id === id);
+      if (!item) return;
+      const modal = document.getElementById('image-modal');
+      const content = document.getElementById('image-modal-content');
 
-  // ── Colors ──
-  const colorsSection = document.getElementById('modal-colors-section');
-  const colorsRow     = document.getElementById('modal-colors-row');
-  const colors = Array.isArray(item.colors) ? item.colors.filter(Boolean) : [];
-  if (colors.length) {
-    colorsRow.innerHTML = colors.map((c, i) => `
+      _modalSelectedColor = null;
+      _modalSelectedSize = null;
+      _modalSelectedVariantPrice = null;
+
+      const modalImg = document.getElementById('modal-img');
+      modalImg.style.opacity = '1';
+      modalImg.src = item.image || FALLBACK;
+      document.getElementById('modal-title').textContent = item.name;
+      document.getElementById('modal-desc').textContent = item.desc || '';
+      document.getElementById('modal-price').textContent = item.price.toLocaleString() + ' ' + currencySymbol;
+
+      // ── Colors ──
+      const colorsSection = document.getElementById('modal-colors-section');
+      const colorsRow = document.getElementById('modal-colors-row');
+      const colors = Array.isArray(item.colors) ? item.colors.filter(Boolean) : [];
+      if (colors.length) {
+        colorsRow.innerHTML = colors.map((c, i) => `
       <button type="button" onclick="_selectColor(this,'${c}')"
               class="color-dot w-8 h-8 rounded-full border-2 border-transparent transition-all active:scale-90"
               style="background:${c}" data-color="${c}" title="${c}"></button>
     `).join('');
-    colorsSection.classList.remove('hidden');
-    // auto-select first
-    const firstDot = colorsRow.querySelector('.color-dot');
-    if (firstDot) _selectColor(firstDot, colors[0]);
-  } else {
-    colorsSection.classList.add('hidden');
-    colorsRow.innerHTML = '';
-  }
+        colorsSection.classList.remove('hidden');
+        // auto-select first
+        const firstDot = colorsRow.querySelector('.color-dot');
+        if (firstDot) _selectColor(firstDot, colors[0]);
+      } else {
+        colorsSection.classList.add('hidden');
+        colorsRow.innerHTML = '';
+      }
 
-  // ── Sizes / Variants ──
-  const sizesSection = document.getElementById('modal-sizes-section');
-  const sizesRow     = document.getElementById('modal-sizes-row');
-  const variants = Array.isArray(item.variants) ? item.variants.filter(v => v && v.label) : [];
-  if (variants.length) {
-    sizesRow.innerHTML = variants.map((v, i) => `
+      // ── Sizes / Variants ──
+      const sizesSection = document.getElementById('modal-sizes-section');
+      const sizesRow = document.getElementById('modal-sizes-row');
+      const variants = Array.isArray(item.variants) ? item.variants.filter(v => v && v.label) : [];
+      if (variants.length) {
+        sizesRow.innerHTML = variants.map((v, i) => `
       <button type="button" onclick="_selectSize(this,'${v.label}',${v.price || item.price})"
               class="size-btn px-4 py-2 rounded-2xl text-sm font-bold border transition-all active:scale-95 ${i === 0 ? 'bg-brand-500 text-white border-brand-500' : 'bg-white text-gray-700 border-gray-200'}"
               data-size="${v.label}" data-price="${v.price || item.price}">
         ${v.label}
       </button>
     `).join('');
-    sizesSection.classList.remove('hidden');
-    // auto-select first
-    const firstBtn = sizesRow.querySelector('.size-btn');
-    if (firstBtn) _selectSize(firstBtn, variants[0].label, variants[0].price || item.price);
-  } else {
-    sizesSection.classList.add('hidden');
-    sizesRow.innerHTML = '';
-  }
+        sizesSection.classList.remove('hidden');
+        // auto-select first
+        const firstBtn = sizesRow.querySelector('.size-btn');
+        if (firstBtn) _selectSize(firstBtn, variants[0].label, variants[0].price || item.price);
+      } else {
+        sizesSection.classList.add('hidden');
+        sizesRow.innerHTML = '';
+      }
 
-  document.getElementById('modal-add-btn').onclick = () => {
-    addToCartWithOptions(id, _modalSelectedColor, _modalSelectedSize, _modalSelectedVariantPrice);
-    closeImageModal();
-  };
+      document.getElementById('modal-add-btn').onclick = () => {
+        addToCartWithOptions(id, _modalSelectedColor, _modalSelectedSize, _modalSelectedVariantPrice);
+        closeImageModal();
+      };
 
-  modal.classList.remove('hidden');
-  requestAnimationFrame(() => { content.style.transform = 'translateY(0)'; });
-}
+      modal.classList.remove('hidden');
+      requestAnimationFrame(() => { content.style.transform = 'translateY(0)'; });
+    }
 
-function _selectColor(btn, color) {
-  _modalSelectedColor = color;
-  document.querySelectorAll('#modal-colors-row .color-dot').forEach(b => {
-    b.style.borderColor = 'transparent';
-    b.style.boxShadow = '';
-  });
-  btn.style.borderColor = '#C96A8A';
-  btn.style.boxShadow = '0 0 0 2px white, 0 0 0 4px #C96A8A';
-}
+    function _selectColor(btn, color) {
+      _modalSelectedColor = color;
+      document.querySelectorAll('#modal-colors-row .color-dot').forEach(b => {
+        b.style.borderColor = 'transparent';
+        b.style.boxShadow = '';
+      });
+      btn.style.borderColor = '#C96A8A';
+      btn.style.boxShadow = '0 0 0 2px white, 0 0 0 4px #C96A8A';
+    }
 
-function _selectSize(btn, size, price) {
-  _modalSelectedSize = size;
-  _modalSelectedVariantPrice = price;
-  // update price display
-  const priceEl = document.getElementById('modal-price');
-  if (priceEl) priceEl.textContent = Number(price).toLocaleString() + ' ' + currencySymbol;
-  // update button styles
-  document.querySelectorAll('#modal-sizes-row .size-btn').forEach(b => {
-    b.classList.remove('bg-brand-500', 'text-white', 'border-brand-500');
-    b.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
-  });
-  btn.classList.add('bg-brand-500', 'text-white', 'border-brand-500');
-  btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
-}
+    function _selectSize(btn, size, price) {
+      _modalSelectedSize = size;
+      _modalSelectedVariantPrice = price;
+      // update price display
+      const priceEl = document.getElementById('modal-price');
+      if (priceEl) priceEl.textContent = Number(price).toLocaleString() + ' ' + currencySymbol;
+      // update button styles
+      document.querySelectorAll('#modal-sizes-row .size-btn').forEach(b => {
+        b.classList.remove('bg-brand-500', 'text-white', 'border-brand-500');
+        b.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
+      });
+      btn.classList.add('bg-brand-500', 'text-white', 'border-brand-500');
+      btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
+    }
 
-function closeImageModal() {
-  const modal   = document.getElementById('image-modal');
-  const content = document.getElementById('image-modal-content');
-  content.style.transform = 'translateY(100%)';
-  setTimeout(() => modal.classList.add('hidden'), 320);
-}
+    function closeImageModal() {
+      const modal = document.getElementById('image-modal');
+      const content = document.getElementById('image-modal-content');
+      content.style.transform = 'translateY(100%)';
+      setTimeout(() => modal.classList.add('hidden'), 320);
+    }
 
-// ─── Search ───────────────────────────────────────────────────
-function toggleSearch() {
-  const bar   = document.getElementById('searchBar');
-  const input = document.getElementById('searchInput');
-  const isHidden = bar.classList.contains('hidden');
-  bar.classList.toggle('hidden');
-  if (isHidden) { input.focus(); }
-  else          { input.value = ''; renderMenu(); }
-}
+    // ─── Search ───────────────────────────────────────────────────
+    function toggleSearch() {
+      const bar = document.getElementById('searchBar');
+      const input = document.getElementById('searchInput');
+      const isHidden = bar.classList.contains('hidden');
+      bar.classList.toggle('hidden');
+      if (isHidden) { input.focus(); }
+      else { input.value = ''; renderMenu(); }
+    }
 
-// ─── Checkout ────────────────────────────────────────────────
-function checkout() {
-  const totalSum = Object.values(cart).reduce((a, b) => a + (b.price * b.qty), 0);
-  const lines    = Object.values(cart).map(i => {
-    const variants = [i.selectedColor ? `لون: ${i.selectedColor}` : '', i.selectedSize ? `مقاس: ${i.selectedSize}` : ''].filter(Boolean).join(' | ');
-    return ` - ${i.name}${variants ? ` (${variants})` : ''} x ${i.qty} — ${(i.price * i.qty).toLocaleString('ar-IQ')} ${currencySymbol}`;
-  }).join('\n');
-  const name     = (document.getElementById('custName')?.value    || '').trim();
-  const phone    = (document.getElementById('custPhone')?.value   || '').trim();
-  const address  = (document.getElementById('custAddress')?.value || '').trim();
-  const note     = (document.getElementById('custNote')?.value    || '').trim();
+    // ─── Checkout ────────────────────────────────────────────────
+    function checkout() {
+      const totalSum = Object.values(cart).reduce((a, b) => a + (b.price * b.qty), 0);
+      const lines = Object.values(cart).map(i => {
+        const variants = [i.selectedColor ? `لون: ${i.selectedColor}` : '', i.selectedSize ? `مقاس: ${i.selectedSize}` : ''].filter(Boolean).join(' | ');
+        return ` - ${i.name}${variants ? ` (${variants})` : ''} x ${i.qty} — ${(i.price * i.qty).toLocaleString('ar-IQ')} ${currencySymbol}`;
+      }).join('\n');
+      const name = (document.getElementById('custName')?.value || '').trim();
+      const phone = (document.getElementById('custPhone')?.value || '').trim();
+      const address = (document.getElementById('custAddress')?.value || '').trim();
+      const note = (document.getElementById('custNote')?.value || '').trim();
 
-  try {
-    localStorage.setItem('order_name',    name);
-    localStorage.setItem('order_phone',   phone);
-    localStorage.setItem('order_address', address);
-    localStorage.setItem('order_note',    note);
-  } catch {}
+      try {
+        localStorage.setItem('order_name', name);
+        localStorage.setItem('order_phone', phone);
+        localStorage.setItem('order_address', address);
+        localStorage.setItem('order_note', note);
+      } catch { }
 
-  const invoice = [
-    'فاتورة الطلب',
-    'الأصناف:', lines,
-    `المجموع: ${totalSum.toLocaleString('ar-IQ')} ${currencySymbol}`,
-    `الاسم: ${name    || '-'}`,
-    `الرقم: ${phone   || '-'}`,
-    `العنوان: ${address || '-'}`,
-    `ملاحظة: ${note   || '-'}`
-  ].join('\n');
+      const invoice = [
+        'فاتورة الطلب',
+        'الأصناف:', lines,
+        `المجموع: ${totalSum.toLocaleString('ar-IQ')} ${currencySymbol}`,
+        `الاسم: ${name || '-'}`,
+        `الرقم: ${phone || '-'}`,
+        `العنوان: ${address || '-'}`,
+        `ملاحظة: ${note || '-'}`
+      ].join('\n');
 
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(invoice)}`, '_blank');
-}
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(invoice)}`, '_blank');
+    }
 
-// ─── Logo from localStorage ───────────────────────────────────
-function applyHeaderLogo() {
-  try {
-    const url = localStorage.getItem('restaurant_logo_url') || '';
-    if (url) { const el = document.getElementById('headerLogo'); if (el) el.src = resolveAssetUrl(url); }
-  } catch {}
-}
+    // ─── Logo from localStorage ───────────────────────────────────
+    function applyHeaderLogo() {
+      try {
+        const url = localStorage.getItem('restaurant_logo_url') || '';
+        if (url) { const el = document.getElementById('headerLogo'); if (el) el.src = resolveAssetUrl(url); }
+      } catch { }
+    }
 
-// ─── Search input listener ────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('searchInput').addEventListener('input', e => {
-    const term = e.target.value.toLowerCase().trim();
-    if (!term) { renderMenu(); return; }
-    const filtered = menuItems.filter(i =>
-      i.name.toLowerCase().includes(term) ||
-      i.desc.toLowerCase().includes(term)
-    );
-    renderMenu(filtered, true);
-  });
-});
+    // ─── Search input listener ────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('searchInput').addEventListener('input', e => {
+        const term = e.target.value.toLowerCase().trim();
+        if (!term) { renderMenu(); return; }
+        const filtered = menuItems.filter(i =>
+          i.name.toLowerCase().includes(term) ||
+          i.desc.toLowerCase().includes(term)
+        );
+        renderMenu(filtered, true);
+      });
+    });
 
-// ─── Side Drawer ─────────────────────────────────────────────
-function openDrawer() {
-  const backdrop = document.getElementById('drawerBackdrop');
-  const drawer   = document.getElementById('sideDrawer');
-  drawerShowPage('nav');
-  backdrop.classList.remove('hidden');
-  requestAnimationFrame(() => {
-    backdrop.style.opacity = '1';
-    drawer.style.transform = 'translateX(0)';
-  });
-  document.body.style.overflow = 'hidden';
-}
+    // ─── Side Drawer ─────────────────────────────────────────────
+    function openDrawer() {
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('sideDrawer');
+      drawerShowPage('nav');
+      backdrop.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        backdrop.style.opacity = '1';
+        drawer.style.transform = 'translateX(0)';
+      });
+      document.body.style.overflow = 'hidden';
+    }
 
-function closeDrawer() {
-  const backdrop = document.getElementById('drawerBackdrop');
-  const drawer   = document.getElementById('sideDrawer');
-  backdrop.style.opacity = '0';
-  drawer.style.transform = 'translateX(100%)';
-  setTimeout(() => backdrop.classList.add('hidden'), 300);
-  document.body.style.overflow = '';
-}
+    function closeDrawer() {
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('sideDrawer');
+      backdrop.style.opacity = '0';
+      drawer.style.transform = 'translateX(100%)';
+      setTimeout(() => backdrop.classList.add('hidden'), 300);
+      document.body.style.overflow = '';
+    }
 
-function drawerShowPage(page) {
-  const nav     = document.getElementById('drawerNav');
-  const about   = document.getElementById('drawerAbout');
-  const contact = document.getElementById('drawerContact');
-  [nav, about, contact].forEach(el => { el.classList.add('hidden'); el.classList.remove('flex'); });
+    function drawerShowPage(page) {
+      const nav = document.getElementById('drawerNav');
+      const about = document.getElementById('drawerAbout');
+      const contact = document.getElementById('drawerContact');
+      [nav, about, contact].forEach(el => { el.classList.add('hidden'); el.classList.remove('flex'); });
 
-  if (page === 'nav') {
-    nav.classList.remove('hidden');
-  } else if (page === 'about') {
-    about.classList.remove('hidden'); about.classList.add('flex');
-    const el = document.getElementById('aboutUsText');
-    if (el) el.textContent = aboutUsText || 'لا توجد معلومات بعد.';
-  } else if (page === 'contact') {
-    contact.classList.remove('hidden'); contact.classList.add('flex');
-    _renderContactContent();
-  }
-}
+      if (page === 'nav') {
+        nav.classList.remove('hidden');
+      } else if (page === 'about') {
+        about.classList.remove('hidden'); about.classList.add('flex');
+        const el = document.getElementById('aboutUsText');
+        if (el) el.textContent = aboutUsText || 'لا توجد معلومات بعد.';
+      } else if (page === 'contact') {
+        contact.classList.remove('hidden'); contact.classList.add('flex');
+        _renderContactContent();
+      }
+    }
 
-function _renderContactContent() {
-  const el = document.getElementById('contactContent');
-  if (!el) return;
-  const items = [
-    contactPhone     ? { icon:'phone',     label:'الهاتف',     val:contactPhone,     href:`tel:${contactPhone}` }         : null,
-    contactWhatsapp  ? { icon:'chat',      label:'واتساب',     val:contactWhatsapp,  href:`https://wa.me/${contactWhatsapp.replace(/\D/g,'')}` } : null,
-    contactInstagram ? { icon:'photo_camera', label:'إنستغرام', val:contactInstagram, href:`https://instagram.com/${contactInstagram.replace('@','')}` } : null,
-    contactAddress   ? { icon:'location_on', label:'العنوان',  val:contactAddress,   href:null }                          : null,
-  ].filter(Boolean);
+    function _renderContactContent() {
+      const el = document.getElementById('contactContent');
+      if (!el) return;
+      const items = [
+        contactPhone ? { icon: 'phone', label: 'الهاتف', val: contactPhone, href: `tel:${contactPhone}` } : null,
+        contactWhatsapp ? { icon: 'chat', label: 'واتساب', val: contactWhatsapp, href: `https://wa.me/${contactWhatsapp.replace(/\D/g, '')}` } : null,
+        contactInstagram ? { icon: 'photo_camera', label: 'إنستغرام', val: contactInstagram, href: `https://instagram.com/${contactInstagram.replace('@', '')}` } : null,
+        contactAddress ? { icon: 'location_on', label: 'العنوان', val: contactAddress, href: null } : null,
+      ].filter(Boolean);
 
-  if (!items.length) { el.innerHTML = '<p class="text-sm text-gray-400 text-center py-8">لا توجد بيانات تواصل بعد.</p>'; return; }
-  el.innerHTML = items.map(it => `
+      if (!items.length) { el.innerHTML = '<p class="text-sm text-gray-400 text-center py-8">لا توجد بيانات تواصل بعد.</p>'; return; }
+      el.innerHTML = items.map(it => `
     <a ${it.href ? `href="${it.href}" target="_blank"` : ''} class="flex items-center gap-3 bg-brand-50 rounded-2xl p-3 ${it.href ? 'cursor-pointer' : ''}">
       <div class="w-9 h-9 bg-brand-100 rounded-xl flex items-center justify-center flex-shrink-0">
         <span class="material-symbols-outlined text-brand-500 text-[18px]">${it.icon}</span>
@@ -1007,14 +1152,15 @@ function _renderContactContent() {
         <div class="text-sm font-bold text-gray-700 leading-tight">${it.val}</div>
       </div>
     </a>`).join('');
-}
+    }
 
-// ─── Bootstrap ───────────────────────────────────────────────
-(async () => {
-  await initDataRepoConfig();
-  await Promise.all([initData(), loadHero(), loadSettings()]);
-  applyHeaderLogo();
-})();
-</script>
+    // ─── Bootstrap ───────────────────────────────────────────────
+    (async () => {
+      await initDataRepoConfig();
+      await Promise.all([initData(), loadHero(), loadSettings()]);
+      applyHeaderLogo();
+    })();
+  </script>
 </body>
+
 </html>

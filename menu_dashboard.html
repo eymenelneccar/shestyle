@@ -186,8 +186,8 @@
             <select id="fCategory" class="select w-full"></select>
           </div>
           <div>
-            <label class="block text-sm text-gray-700 mb-1">السعر (د.ع)</label>
-            <input id="fPrice" type="number" min="0" step="1" class="input w-full" placeholder="مثال: 18" />
+            <label class="block text-sm text-gray-700 mb-1">السعر ($)</label>
+            <input id="fPrice" type="number" min="0" step="0.01" class="input w-full" placeholder="مثال: 18" />
           </div>
           <div>
             <label class="block text-sm text-gray-700 mb-1">رابط الصورة (اختياري)</label>
@@ -858,8 +858,8 @@
               <input type="text" class="var-label input w-full" placeholder="مثال: صغير / وسط / كبير" value="${(data.label || '').replace(/"/g,'&quot;')}">
             </div>
             <div class="sm:col-span-2">
-              <label class="block text-sm text-gray-700 mb-1">السعر (د.ع)</label>
-              <input type="number" min="0" step="1" class="var-price input w-full" placeholder="مثال: 8000" value="${Number(data.price || 0) || ''}">
+              <label class="block text-sm text-gray-700 mb-1">السعر ($)</label>
+              <input type="number" min="0" step="0.01" class="var-price input w-full" placeholder="مثال: 18" value="${Number(data.price || 0) || ''}">
             </div>
             <div class="sm:col-span-2">
               <label class="block text-sm text-gray-700 mb-1">النوع (اختياري)</label>

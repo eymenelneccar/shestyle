@@ -91,8 +91,8 @@
               <select id="fCategory" class="select w-full"></select>
             </div>
             <div>
-              <label class="block text-sm text-gray-700 mb-1">السعر (د.ع)</label>
-              <input id="fPrice" type="number" min="0" step="1" class="input w-full" placeholder="مثال: 18" />
+              <label class="block text-sm text-gray-700 mb-1">السعر ($)</label>
+              <input id="fPrice" type="number" min="0" step="0.01" class="input w-full" placeholder="مثال: 18" />
             </div>
             <div>
               <label class="block text-sm text-gray-700 mb-1">رابط الصورة (اختياري)</label>
@@ -102,7 +102,23 @@
                 <span id="uploadStatus" class="text-xs text-gray-500"></span>
               </div>
             </div>
-            <div style="grid-column:1 / -1">
+            <!-- قسم الأحجام والمتغيرات -->
+            <div style="grid-column:1 / -1; margin-top:.5rem;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:.5rem;">
+                <h3 class="font-bold text-primary" style="margin:0;">الأحجام</h3>
+                <button type="button" id="btnAddVariant" class="btn btn-outline" style="padding:.3rem .6rem; font-size:.85rem;">إضافة حجم</button>
+              </div>
+              <div id="variantsList" style="display:flex; flex-direction:column; gap:.5rem;"></div>
+            </div>
+            <!-- قسم الألوان -->
+            <div style="grid-column:1 / -1; margin-top:.5rem;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:.5rem;">
+                <h3 class="font-bold text-primary" style="margin:0;">الألوان المتاحة</h3>
+                <button type="button" id="btnAddColor" class="btn btn-outline" style="padding:.3rem .6rem; font-size:.85rem;">+ إضافة لون</button>
+              </div>
+              <div id="colorsList" style="display:flex; flex-wrap:wrap; gap:.5rem; min-height:36px; padding:.5rem; border:1px dashed #D1D5DB; border-radius:8px;"></div>
+            </div>
+            <div style="grid-column:1 / -1; margin-top:.5rem;">
               <label class="block text-sm text-gray-700 mb-1">الوصف</label>
               <textarea id="fDesc" class="input w-full" rows="3" placeholder="اختياري"></textarea>
             </div>
@@ -246,6 +262,56 @@
       els.fPrice.value = item?.price != null ? item.price : '';
       els.fImage.value = item?.imageUrl || '';
       els.fDesc.value = item?.description || '';
+
+      const colorsList = document.getElementById('colorsList');
+      if (colorsList) {
+        colorsList.innerHTML = '';
+        const existingColors = Array.isArray(item?.colors) ? item.colors : [];
+        existingColors.forEach(c => addColorRow(c));
+      }
+
+      const variantsList = document.getElementById('variantsList');
+      if (variantsList) {
+        variantsList.innerHTML = '';
+        const vars = Array.isArray(item?.variants) ? item.variants : [];
+        const genKey = () => 'v' + Date.now() + Math.floor(Math.random() * 1000);
+        const updateTopPrice = () => {
+          const rows = variantsList.querySelectorAll('.variant-row');
+          const prices = Array.from(rows).map(r => Number(r.querySelector('.var-price').value)).filter(p => Number.isFinite(p) && p > 0);
+          if (prices.length) els.fPrice.value = String(Math.min(...prices));
+        };
+        const addRow = (data = {}) => {
+          const row = document.createElement('div');
+          row.className = 'variant-row';
+          row.style.cssText = 'display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:8px; align-items:end;';
+          row.setAttribute('data-key', String(data.key || genKey()));
+          row.innerHTML = `
+            <div>
+              <label style="font-size:.8rem; color:#4B5563;">اسم الحجم</label>
+              <input type="text" class="var-label input" style="width:100%" placeholder="صغير / وسط" value="${(data.label || '').replace(/"/g,'&quot;')}">
+            </div>
+            <div>
+              <label style="font-size:.8rem; color:#4B5563;">السعر ($)</label>
+              <input type="number" min="0" step="0.01" class="var-price input" style="width:100%" placeholder="18" value="${Number(data.price || 0) || ''}">
+            </div>
+            <div>
+              <label style="font-size:.8rem; color:#4B5563;">النوع</label>
+              <input type="text" class="var-type input" style="width:100%" placeholder="عادي" value="${(data.variantType || '').replace(/"/g,'&quot;')}">
+            </div>
+            <div style="padding-bottom:2px;">
+              <button type="button" class="btn-remove-variant" style="background:#dc2626; color:white; border:none; border-radius:8px; padding:6px 10px; cursor:pointer;">حذف</button>
+            </div>
+          `;
+          variantsList.appendChild(row);
+          row.querySelector('.btn-remove-variant').addEventListener('click', () => { row.remove(); updateTopPrice(); });
+          row.querySelector('.var-price').addEventListener('input', updateTopPrice);
+        };
+        vars.forEach(v => addRow(v));
+        const btnAddVariant = document.getElementById('btnAddVariant');
+        if (btnAddVariant) btnAddVariant.onclick = () => addRow();
+        updateTopPrice();
+      }
+
       showModal();
     }
 
@@ -269,7 +335,69 @@
     if (els.itemSearch) { els.itemSearch.addEventListener('input', ()=>{ itemQuery = els.itemSearch.value || ''; renderItems(); }); }
     if (els.sortSeg) { els.sortSeg.addEventListener('click', (e)=>{ const b=e.target.closest('button[data-key]'); if (!b) return; Array.from(els.sortSeg.querySelectorAll('button')).forEach(x=>x.classList.remove('active')); b.classList.add('active'); sortKey=b.getAttribute('data-key')||'new'; renderItems(); }); }
     els.grid.addEventListener('click',(e)=>{ const btn=e.target.closest('button'); if (!btn) return; const action=btn.getAttribute('data-action'); const id=Number(btn.getAttribute('data-id')); const item=items.find(x=>x.id===id); if (!action) return; if (action==='edit') openEditModal(item); else if (action==='delete') openConfirmDelete(id); });
-    els.itemForm.addEventListener('submit',(e)=>{ e.preventDefault(); const name=els.fName.value.trim(); const category=els.fCategory.value.trim(); const price=Number(els.fPrice.value); const imageUrl=els.fImage.value.trim(); const description=els.fDesc.value.trim(); const finalPrice= Number.isFinite(price) && price>0 ? price : 0; if (editingId!=null) { items = items.map(x=> x.id===editingId ? { ...x, name, category, price: finalPrice, imageUrl, description } : x); } else { const id = Date.now() + Math.floor(Math.random()*1000); items.push({ id, name, category, price: finalPrice, imageUrl, description }); } saveData(); renderItems(); closeEditModal(); });
+    els.itemForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const name=els.fName.value.trim();
+      const category=els.fCategory.value.trim();
+      const price=Number(els.fPrice.value);
+      const imageUrl=els.fImage.value.trim();
+      const description=els.fDesc.value.trim();
+
+      const variants = [];
+      const variantsList = document.getElementById('variantsList');
+      if (variantsList) {
+        variantsList.querySelectorAll('.variant-row').forEach((row, idx) => {
+          const key = row.getAttribute('data-key') || ('v' + idx);
+          const label = (row.querySelector('.var-label').value || '').trim();
+          const priceVal = Number(row.querySelector('.var-price').value);
+          const variantType = (row.querySelector('.var-type').value || '').trim();
+          if (Number.isFinite(priceVal) && priceVal > 0) {
+            variants.push({ key, label, price: priceVal, variantType });
+          }
+        });
+      }
+
+      const colors = [];
+      const colorsList = document.getElementById('colorsList');
+      if (colorsList) {
+        colorsList.querySelectorAll('.color-input').forEach(inp => {
+          const v = inp.value.trim();
+          if (v) colors.push(v);
+        });
+      }
+
+      const hasVariantPrice = variants.length > 0;
+      const priceIsValid = Number.isFinite(price) && price > 0;
+      const minVarPrice = hasVariantPrice ? Math.min(...variants.map(v => v.price)) : null;
+      const finalPrice = Number.isFinite(minVarPrice) ? minVarPrice : (priceIsValid ? price : 0);
+
+      if (editingId!=null) {
+        items = items.map(x=> x.id===editingId ? { ...x, name, category, price: finalPrice, imageUrl, description, variants, colors } : x);
+      } else {
+        const id = Date.now() + Math.floor(Math.random()*1000);
+        items.push({ id, name, category, price: finalPrice, imageUrl, description, variants, colors });
+      }
+      saveData();
+      renderItems();
+      closeEditModal();
+    });
+
+    function addColorRow(hex = '#C96A8A') {
+      const colorsList = document.getElementById('colorsList');
+      if (!colorsList) return;
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'display:flex; align-items:center; gap:4px; background:#F9FAFB; border:1px solid #E5E7EB; border-radius:8px; padding:4px;';
+      wrap.innerHTML = `
+        <input type="color" class="color-input" value="${hex}" style="width:32px; height:32px; padding:0; border:0; border-radius:4px; cursor:pointer;" title="اختر لوناً" />
+        <button type="button" style="color:#ef4444; font-size:18px; font-weight:bold; background:none; border:none; cursor:pointer;" onclick="this.parentElement.remove()" title="حذف">×</button>
+      `;
+      colorsList.appendChild(wrap);
+    }
+    document.addEventListener('click', (e) => {
+      if (e.target && e.target.id === 'btnAddColor') {
+        addColorRow();
+      }
+    });
     els.btnAdd.addEventListener('click',()=> openEditModal(null));
     els.btnCancel.addEventListener('click', closeEditModal);
     els.btnConfirmDelete.addEventListener('click', ()=>{ if (pendingDeleteId==null) return; items = items.filter(x=> x.id!==pendingDeleteId); saveData(); renderItems(); closeConfirmDelete(); });
