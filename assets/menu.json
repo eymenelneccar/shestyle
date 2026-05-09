@@ -133,5 +133,22 @@
     "variants": [],
     "colors": [],
     "isPopular": false
+  },
+  {
+    "id": 1778348502972,
+    "name": "طقم قطعتين مع حزام",
+    "category": "فساتين",
+    "price": 65,
+    "imageUrl": "/assets/videos/1778348425823-WhatsAppVideo2026-05-09at18.50.13.mp4",
+    "media": [
+      "/assets/videos/1778348425823-WhatsAppVideo2026-05-09at18.50.13.mp4",
+      "/assets/videos/1778348431980-WhatsAppVideo2026-05-09at18.50.09.mp4",
+      "/assets/videos/1778348435968-WhatsAppVideo2026-05-09at18.50.06.mp4",
+      "/assets/videos/1778348439953-WhatsAppVideo2026-05-09at18.50.11.mp4"
+    ],
+    "description": "طقم قطعتين مع حزام \n مبطن قماش كلوش عريض",
+    "variants": [],
+    "colors": [],
+    "isPopular": true
   }
 ]
