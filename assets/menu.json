@@ -118,5 +118,20 @@
     "variants": [],
     "colors": [],
     "isPopular": false
+  },
+  {
+    "id": 1778348376718,
+    "name": "فستان سهرة قماش",
+    "category": "فساتين",
+    "price": 40,
+    "imageUrl": "/assets/videos/1778348367448-WhatsAppVideo2026-05-09at20.38.40.mp4",
+    "media": [
+      "/assets/videos/1778348367448-WhatsAppVideo2026-05-09at20.38.40.mp4",
+      "/assets/videos/1778348372488-WhatsAppVideo2026-05-09at18.48.57.mp4"
+    ],
+    "description": "فستان سهرة قماش",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
   }
 ]
