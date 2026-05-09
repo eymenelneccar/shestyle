@@ -13,5 +13,22 @@
     "variants": [],
     "colors": [],
     "isPopular": false
+  },
+  {
+    "id": 1778347515057,
+    "name": "طقم قطعتين قماش",
+    "category": "فساتين",
+    "price": 70,
+    "imageUrl": "/assets/videos/1778347373796-WhatsAppVideo2026-05-09at18.36.11.mp4",
+    "media": [
+      "/assets/videos/1778347373796-WhatsAppVideo2026-05-09at18.36.11.mp4",
+      "/assets/videos/1778347379458-WhatsAppVideo2026-05-09at18.36.12.mp4",
+      "/assets/images/1778347382018-WhatsAppImage2026-05-09at18.36.14.jpeg.jpg",
+      "/assets/images/1778347385636-WhatsAppImage2026-05-09at18.36.13.jpeg.jpg"
+    ],
+    "description": "طقم قطعتين قماش شك حجر مبطن",
+    "variants": [],
+    "colors": [],
+    "isPopular": true
   }
 ]
