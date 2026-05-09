@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1778347248860,
+    "name": "جاكيت بنطال قماش",
+    "category": "فساتين",
+    "price": 68,
+    "imageUrl": "/assets/videos/1778347156482-WhatsAppVideo2026-05-09at18.32.19.mp4",
+    "media": [
+      "/assets/videos/1778347156482-WhatsAppVideo2026-05-09at18.32.19.mp4",
+      "/assets/videos/1778347160484-WhatsAppVideo2026-05-09at18.32.21.mp4"
+    ],
+    "description": "طقم  قطعتين \n\nجاكيت شك حجر مبطن \nجاكيت بنطال قماش دابل",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
+  }
+]
