@@ -49,5 +49,59 @@
     "variants": [],
     "colors": [],
     "isPopular": false
+  },
+  {
+    "id": 1778347810517,
+    "name": "طقم قطعتين جاكيت مبطن",
+    "category": "فساتين",
+    "price": 75,
+    "imageUrl": "/assets/videos/1778347792389-WhatsAppVideo2026-05-0d9at18.39.59.mp4",
+    "media": [
+      "/assets/videos/1778347792389-WhatsAppVideo2026-05-0d9at18.39.59.mp4",
+      "/assets/videos/1778347795899-WhatsAppVideo2026-05-09at18.39.55.mp4",
+      "/assets/videos/1778347799268-WhatsAppVideo2026-05-09at18.39.59.mp4",
+      "/assets/videos/1778347803054-WhatsAppVideo2026-05-09at18.40.02.mp4",
+      "/assets/images/1778347806992-WhatsAppImage2026-05-09at18.40.03.jpeg.jpg"
+    ],
+    "description": "طقم قطعتين جاكيت مبطن قماش دبل شك تنورة قماش مبطن كلوش عريض",
+    "variants": [],
+    "colors": [],
+    "isPopular": true
+  },
+  {
+    "id": 1778348009614,
+    "name": "فستان سهرة",
+    "category": "فساتين",
+    "price": 65,
+    "imageUrl": "/assets/videos/1778347963138-WhatsAppVideo2026-05-09at18.43.25.mp4",
+    "media": [
+      "/assets/videos/1778347963138-WhatsAppVideo2026-05-09at18.43.25.mp4",
+      "/assets/images/1778347969477-WhatsAppImage2026-05-09at18.43.23.jpeg.jpg",
+      "/assets/videos/1778347974801-WhatsAppVideo2026-05-09at18.43.25.mp4",
+      "/assets/videos/1778347978143-WhatsAppVideo2026-05-09at18.43.26.mp4",
+      "/assets/videos/1778347980803-WhatsAppVideo2026-05-09at18.43.27.mp4"
+    ],
+    "description": "فستان سهرة قماش دبل ساتان",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
+  },
+  {
+    "id": 1778348141136,
+    "name": "طقم قطعتين قماش",
+    "category": "فساتين",
+    "price": 58,
+    "imageUrl": "/assets/videos/1778348118639-WhatsAppVideo202ft18.45.19.mp4",
+    "media": [
+      "/assets/videos/1778348118639-WhatsAppVideo202ft18.45.19.mp4",
+      "/assets/images/1778348122265-WhatsAppImage2026f-05-09at18.45.17.jpeg.jpg",
+      "/assets/images/1778348125334-WhatsAppImage2026-05-09at18dv.45.17.jpeg.jpg",
+      "/assets/images/1778348128555-WhatsAppImage2026-05-09at18.45.17.jpeg.jpg",
+      "/assets/images/1778348132529-WhatsAppImage2026-05-09at18.45.17.jpeg.jpg"
+    ],
+    "description": "طقم قطعتين قماش",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
   }
 ]
