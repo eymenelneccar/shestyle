@@ -103,5 +103,20 @@
     "variants": [],
     "colors": [],
     "isPopular": false
+  },
+  {
+    "id": 1778348198390,
+    "name": "طقم قطعتين قماش",
+    "category": "فساتين",
+    "price": 65,
+    "imageUrl": "/assets/videos/1778348175236-WhatsAppVideo2026-05-09at18.46.13.mp4",
+    "media": [
+      "/assets/videos/1778348175236-WhatsAppVideo2026-05-09at18.46.13.mp4",
+      "/assets/videos/1778348179144-WhatsAppVideo2026-05-09at18.46.16.mp4"
+    ],
+    "description": "طقم قطعتين قماش",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
   }
 ]
