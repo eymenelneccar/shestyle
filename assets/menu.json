@@ -30,5 +30,24 @@
     "variants": [],
     "colors": [],
     "isPopular": true
+  },
+  {
+    "id": 1778347651327,
+    "name": "طقم ثلاث قطع",
+    "category": "فساتين",
+    "price": 49,
+    "imageUrl": "/assets/videos/1778347624548-WhatsAppVideo2026-05-09at18.37.59.mp4",
+    "media": [
+      "/assets/videos/1778347624548-WhatsAppVideo2026-05-09at18.37.59.mp4",
+      "/assets/videos/1778347629961-WhatsAppVideo2026-05-09at18.38.01.mp4",
+      "/assets/videos/1778347633883-WhatsAppVideo2026-05-09at18.38.03.mp4",
+      "/assets/images/1778347637512-WhatsAppImage2026-05-09at18.37.57.jpeg.jpg",
+      "/assets/images/1778347640467-WhatsAppImage2026-05-09at18.37.58.jpeg.jpg",
+      "/assets/images/1778347644478-WhatsAppImage2026-05-09atd18.37.58.jpeg.jpg"
+    ],
+    "description": "طقم ثلاث قطع مع حزام مع بروش قماش جسيكا",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
   }
 ]
