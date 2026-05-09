@@ -412,9 +412,9 @@
       style="transform:translateY(100%); max-height:92vh">
 
       <!-- Image -->
-      <div class="relative" style="height:300px; background:#FDE8F0">
-        <video id="modal-vid" src="" autoplay loop muted playsinline class="w-full h-full object-cover hidden"></video>
-        <img id="modal-img" src="" alt="" class="w-full h-full object-cover hidden"
+      <div class="relative" style="background:#FDE8F0; width:100%;">
+        <video id="modal-vid" src="" autoplay loop muted playsinline class="w-full object-contain hidden" style="max-height: 65vh;"></video>
+        <img id="modal-img" src="" alt="" class="w-full object-contain hidden" style="max-height: 65vh;"
           onerror="if(typeof FALLBACK !== 'undefined') { this.src=FALLBACK; this.style.opacity='1'; } else { this.style.background='#FDE8F0'; this.style.opacity='0'; }">
         <!-- Back btn -->
         <button onclick="closeImageModal()"
