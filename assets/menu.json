@@ -2,7 +2,7 @@
   {
     "id": 1778347248860,
     "name": "جاكيت بنطال قماش",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 68,
     "imageUrl": "/assets/videos/1778347156482-WhatsAppVideo2026-05-09at18.32.19.mp4",
     "media": [
@@ -17,7 +17,7 @@
   {
     "id": 1778347515057,
     "name": "طقم قطعتين قماش",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 70,
     "imageUrl": "/assets/videos/1778347373796-WhatsAppVideo2026-05-09at18.36.11.mp4",
     "media": [
@@ -34,7 +34,7 @@
   {
     "id": 1778347651327,
     "name": "طقم ثلاث قطع",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 49,
     "imageUrl": "/assets/videos/1778347624548-WhatsAppVideo2026-05-09at18.37.59.mp4",
     "media": [
@@ -53,7 +53,7 @@
   {
     "id": 1778347810517,
     "name": "طقم قطعتين جاكيت مبطن",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 75,
     "imageUrl": "/assets/videos/1778347792389-WhatsAppVideo2026-05-0d9at18.39.59.mp4",
     "media": [
@@ -71,7 +71,7 @@
   {
     "id": 1778348009614,
     "name": "فستان سهرة",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 65,
     "imageUrl": "/assets/videos/1778347963138-WhatsAppVideo2026-05-09at18.43.25.mp4",
     "media": [
@@ -89,7 +89,7 @@
   {
     "id": 1778348141136,
     "name": "طقم قطعتين قماش",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 58,
     "imageUrl": "/assets/videos/1778348118639-WhatsAppVideo202ft18.45.19.mp4",
     "media": [
@@ -107,7 +107,7 @@
   {
     "id": 1778348198390,
     "name": "طقم قطعتين قماش",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 65,
     "imageUrl": "/assets/videos/1778348175236-WhatsAppVideo2026-05-09at18.46.13.mp4",
     "media": [
@@ -122,7 +122,7 @@
   {
     "id": 1778348376718,
     "name": "فستان سهرة قماش",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 40,
     "imageUrl": "/assets/videos/1778348367448-WhatsAppVideo2026-05-09at20.38.40.mp4",
     "media": [
@@ -137,7 +137,7 @@
   {
     "id": 1778348502972,
     "name": "طقم قطعتين مع حزام",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 65,
     "imageUrl": "/assets/videos/1778348425823-WhatsAppVideo2026-05-09at18.50.13.mp4",
     "media": [
@@ -154,7 +154,7 @@
   {
     "id": 1778348592788,
     "name": "طقم قطعتين قماش",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 67,
     "imageUrl": "/assets/videos/1778348562344-WhatsAppVideo2026-05-09at18.52.33.mp4",
     "media": [
@@ -171,7 +171,7 @@
   {
     "id": 1778348735017,
     "name": "طقم قطعتين قماش مع كمر",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 65,
     "imageUrl": "/assets/videos/1778348646898-WhatsAppVideo2026-05-09at18.55.23.mp4",
     "media": [
@@ -187,7 +187,7 @@
   {
     "id": 1778348848615,
     "name": "طقم قطعتين مع حزام",
-    "category": "فساتين",
+    "category": "طقومة",
     "price": 49,
     "imageUrl": "/assets/videos/1778348757969-WhatsAppVideo2026-05-09at19.32.23.mp4",
     "media": [
@@ -197,6 +197,23 @@
       "/assets/images/1778348767499-WhatsAppImage2026-05-09at19.32.17.jpeg.jpg"
     ],
     "description": "طقم قطعتين مع حزام \nجاكيت مبطن قماش دبل كم دانتيل",
+    "variants": [],
+    "colors": [],
+    "isPopular": true
+  },
+  {
+    "id": 1778349065855,
+    "name": "طقم قطعتين مبطن قماش",
+    "category": "طقومة",
+    "price": 64.99,
+    "imageUrl": "/assets/videos/1778349037159-WhatsAppVideo2026-05-09at20.49.16.mp4",
+    "media": [
+      "/assets/videos/1778349037159-WhatsAppVideo2026-05-09at20.49.16.mp4",
+      "/assets/videos/1778349039728-WhatsAppVideo2026-05-09at20.49.32.mp4",
+      "/assets/videos/1778349042219-WhatsAppVideo2026-05-09at20.49.11.mp4",
+      "/assets/videos/1778349045160-WhatsAppVideo2026-05-09at20.49.14.mp4"
+    ],
+    "description": "طقم قطعتين مبطن قماش \nتنورة قماش شيفون كلوش عريض",
     "variants": [],
     "colors": [],
     "isPopular": true
