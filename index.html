@@ -743,8 +743,13 @@
     // ─── Render popular ──────────────────────────────────────────
     function renderPopular() {
       const grid = document.getElementById('popular-grid');
-      const pop = menuItems.slice(0, 4);
-      grid.innerHTML = pop.length ? pop.map(buildCard).join('') : '';
+      const popularItems = menuItems.filter(i => i.isPopular);
+      if (popularItems.length === 0) {
+        document.getElementById('popular-section').style.display = 'none';
+        return;
+      }
+      document.getElementById('popular-section').style.display = 'block';
+      grid.innerHTML = popularItems.map(buildCard).join('');
     }
 
     // ─── Render menu ─────────────────────────────────────────────
