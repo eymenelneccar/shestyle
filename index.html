@@ -417,7 +417,7 @@
           <!-- Media items -->
         </div>
         <style>#modal-carousel::-webkit-scrollbar { display: none; }</style>
-        <div id="modal-carousel-dots" class="absolute bottom-4 right-4 flex justify-center gap-1.5 pointer-events-none" style="z-index:10; left:auto;"></div>
+        <div id="modal-carousel-dots" class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 pointer-events-none" style="z-index:10;"></div>
 
         <!-- Back btn -->
         <button onclick="closeImageModal()" style="z-index:10;"
@@ -965,7 +965,9 @@
 
       mediaUrls.forEach((url, idx) => {
         const slide = document.createElement('div');
-        slide.className = 'w-full flex-shrink-0 snap-center flex justify-center items-center';
+        slide.className = 'flex-shrink-0 snap-center flex justify-center items-center';
+        slide.style.width = '100%';
+        slide.style.minWidth = '100%';
         if (isVideo(url)) {
           slide.innerHTML = `<video src="${url}" autoplay loop muted playsinline class="w-full object-contain" style="max-height: 65vh;"></video>`;
         } else {
