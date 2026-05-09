@@ -167,5 +167,38 @@
     "variants": [],
     "colors": [],
     "isPopular": false
+  },
+  {
+    "id": 1778348735017,
+    "name": "طقم قطعتين قماش مع كمر",
+    "category": "فساتين",
+    "price": 65,
+    "imageUrl": "/assets/videos/1778348646898-WhatsAppVideo2026-05-09at18.55.23.mp4",
+    "media": [
+      "/assets/videos/1778348646898-WhatsAppVideo2026-05-09at18.55.23.mp4",
+      "/assets/videos/1778348650908-WhatsAppVideo2026-05-09at18.55.20.mp4",
+      "/assets/videos/1778348655557-WhatsAppVideo2026-05-09at18.55.15.mp4"
+    ],
+    "description": "طقم قطعتين قماش مع كمر",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
+  },
+  {
+    "id": 1778348848615,
+    "name": "طقم قطعتين مع حزام",
+    "category": "فساتين",
+    "price": 49,
+    "imageUrl": "/assets/videos/1778348757969-WhatsAppVideo2026-05-09at19.32.23.mp4",
+    "media": [
+      "/assets/videos/1778348757969-WhatsAppVideo2026-05-09at19.32.23.mp4",
+      "/assets/videos/1778348761940-WhatsAppVideo2026-05-09at20.38.40.mp4",
+      "/assets/videos/1778348764238-WhatsAppVideo2026-05-09at19.32.20.mp4",
+      "/assets/images/1778348767499-WhatsAppImage2026-05-09at19.32.17.jpeg.jpg"
+    ],
+    "description": "طقم قطعتين مع حزام \nجاكيت مبطن قماش دبل كم دانتيل",
+    "variants": [],
+    "colors": [],
+    "isPopular": true
   }
 ]
