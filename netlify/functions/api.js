@@ -28,6 +28,19 @@ exports.handler = async (event) => {
     if (!resp.ok) { const t = await resp.text(); return { ok: false, error: t }; }
     return { ok: true };
   };
+
+  const deleteFile = async (key) => {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${key}`;
+    let sha = undefined;
+    try {
+      const cur = await fetch(`${url}?ref=${branch}`, { headers: { 'Authorization': `token ${token}`, 'User-Agent':'netlify-functions', 'Accept':'application/vnd.github.v3+json' } });
+      if (cur.ok) { const j = await cur.json(); sha = j.sha; }
+    } catch {}
+    if (!sha) return { ok: false, error: 'file_not_found' };
+    const resp = await fetch(url, { method: 'DELETE', headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json', 'User-Agent':'netlify-functions', 'Accept':'application/vnd.github.v3+json' }, body: JSON.stringify({ message: `delete ${key}`, branch, sha }) });
+    if (!resp.ok) { const t = await resp.text(); return { ok: false, error: t }; }
+    return { ok: true };
+  };
   const json = (obj) => ({ statusCode: 200, headers: { ...cors, 'content-type': 'application/json' }, body: JSON.stringify(obj) });
   const error = (code, msg) => ({ statusCode: code, headers: cors, body: JSON.stringify({ ok: false, error: msg }) });
   try {
@@ -53,6 +66,15 @@ exports.handler = async (event) => {
       const r = await putFile(key, base64);
       if (!r.ok) return error(500, r.error || 'upload_failed');
       return json({ ok: true, path: `/${key}` });
+    }
+    if (route.includes('/delete-asset') && event.httpMethod === 'POST') {
+      const p = JSON.parse(bodyText || '{}');
+      let key = String(p.path || '').replace(/^\/+/, '');
+      if (key.startsWith('shestyle/')) key = key.replace(/^shestyle\//, ''); // Handle base repo cases
+      if (!key.startsWith('assets/')) return error(400, 'invalid_path');
+      const r = await deleteFile(key);
+      if (!r.ok && r.error !== 'file_not_found') return error(500, r.error || 'delete_failed');
+      return json({ ok: true });
     }
     if (route.includes('/save-hero') && event.httpMethod === 'POST') {
       const p = JSON.parse(bodyText || '{}');

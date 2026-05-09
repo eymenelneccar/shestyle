@@ -186,6 +186,28 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_header('Content-Type', 'application/json; charset=utf-8')
                 self.end_headers()
                 self.wfile.write(json.dumps({'ok': False, 'error': str(e)}).encode('utf-8'))
+        elif self.path == '/api/delete-asset':
+            length = int(self.headers.get('Content-Length', '0'))
+            body = self.rfile.read(length)
+            try:
+                payload = json.loads(body.decode('utf-8'))
+                asset_path = payload.get('path', '')
+                if not asset_path.startswith('assets/'):
+                    raise ValueError('Invalid path')
+                
+                abs_path = os.path.join(ROOT_DIR, asset_path.replace('/', os.sep))
+                if os.path.exists(abs_path) and os.path.isfile(abs_path):
+                    os.remove(abs_path)
+                    
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.end_headers()
+                self.wfile.write(json.dumps({'ok': True}).encode('utf-8'))
+            except Exception as e:
+                self.send_response(400)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.end_headers()
+                self.wfile.write(json.dumps({'ok': False, 'error': str(e)}).encode('utf-8'))
         elif self.path == '/api/save-hero':
             length = int(self.headers.get('Content-Length', '0'))
             body = self.rfile.read(length)

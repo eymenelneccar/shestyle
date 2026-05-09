@@ -400,7 +400,30 @@
     });
     els.btnAdd.addEventListener('click',()=> openEditModal(null));
     els.btnCancel.addEventListener('click', closeEditModal);
-    els.btnConfirmDelete.addEventListener('click', ()=>{ if (pendingDeleteId==null) return; items = items.filter(x=> x.id!==pendingDeleteId); saveData(); renderItems(); closeConfirmDelete(); });
+    els.btnConfirmDelete.addEventListener('click', async ()=>{ 
+      if (pendingDeleteId==null) return; 
+      const itemToDelete = items.find(x => x.id === pendingDeleteId);
+      if (itemToDelete && itemToDelete.imageUrl && itemToDelete.imageUrl.includes('assets/')) {
+        try {
+          const original = els.btnConfirmDelete.textContent;
+          els.btnConfirmDelete.textContent = 'جارِ الحذف...';
+          els.btnConfirmDelete.disabled = true;
+          let relativePath = itemToDelete.imageUrl.split('assets/')[1];
+          relativePath = 'assets/' + relativePath;
+          await fetch('/api/delete-asset', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', ...apiAuthHeader() },
+            body: JSON.stringify({ path: relativePath })
+          });
+          els.btnConfirmDelete.textContent = original;
+          els.btnConfirmDelete.disabled = false;
+        } catch(e) { console.error('Failed to delete asset', e); }
+      }
+      items = items.filter(x=> x.id!==pendingDeleteId); 
+      saveData(); 
+      renderItems(); 
+      closeConfirmDelete(); 
+    });
     els.btnCancelDelete.addEventListener('click', closeConfirmDelete);
     els.btnUploadImage.addEventListener('click', ()=> els.imageFileInput.click());
     els.imageFileInput.addEventListener('change', ()=> uploadImageFile(els.imageFileInput.files[0]));
