@@ -150,5 +150,22 @@
     "variants": [],
     "colors": [],
     "isPopular": true
+  },
+  {
+    "id": 1778348592788,
+    "name": "طقم قطعتين قماش",
+    "category": "فساتين",
+    "price": 67,
+    "imageUrl": "/assets/videos/1778348562344-WhatsAppVideo2026-05-09at18.52.33.mp4",
+    "media": [
+      "/assets/videos/1778348562344-WhatsAppVideo2026-05-09at18.52.33.mp4",
+      "/assets/videos/1778348564985-WhatsAppVideo2026-05-09at18.52.301.mp4",
+      "/assets/videos/1778348566756-WhatsAppVideo2026-05-09at18.52.27.mp4",
+      "/assets/videos/1778348569157-WhatsAppVideo2026-05-09at18.52.25.mp4"
+    ],
+    "description": "طقم قطعتين قماش وقماش شيفون",
+    "variants": [],
+    "colors": [],
+    "isPopular": false
   }
 ]
