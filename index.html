@@ -413,7 +413,8 @@
 
       <!-- Image -->
       <div class="relative" style="height:300px; background:#FDE8F0">
-        <img id="modal-img" src="" alt="" class="w-full h-full object-cover"
+        <video id="modal-vid" src="" autoplay loop muted playsinline class="w-full h-full object-cover hidden"></video>
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover hidden"
           onerror="if(typeof FALLBACK !== 'undefined') { this.src=FALLBACK; this.style.opacity='1'; } else { this.style.background='#FDE8F0'; this.style.opacity='0'; }">
         <!-- Back btn -->
         <button onclick="closeImageModal()"
@@ -773,16 +774,22 @@
     // ─── Build product card ──────────────────────────────────────
     const FALLBACK = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect fill='%23FDE8F0' width='200' height='200'/><text fill='%23E07FA8' font-size='40' text-anchor='middle' x='100' y='115' font-family='sans-serif'>☕</text></svg>`;
 
+    function isVideo(url) {
+      if (!url) return false;
+      return !!String(url).match(/\.(mp4|webm|mov|ogg)$/i) || String(url).startsWith('data:video/');
+    }
+
     function buildCard(item) {
+      const mediaHtml = isVideo(item.image)
+        ? `<video src="${item.image}" autoplay loop muted playsinline class="w-full h-full object-cover"></video>`
+        : `<img src="${item.image || FALLBACK}" onerror="this.src='${FALLBACK}'" class="w-full h-full object-cover" loading="lazy" alt="${item.name}">`;
+
       return `
     <div onclick="openImageModal(${item.id})"
          class="bg-white rounded-3xl overflow-hidden cursor-pointer active:scale-95 transition-transform duration-150 card-shadow fade-up">
       <!-- Image -->
       <div class="relative overflow-hidden" style="height:200px; background:#FDE8F0">
-        <img src="${item.image || FALLBACK}"
-             onerror="this.src='${FALLBACK}'"
-             class="w-full h-full object-cover"
-             loading="lazy" alt="${item.name}">
+        ${mediaHtml}
         <!-- Add to cart overlay -->
         <button onclick="event.stopPropagation(); addToCart(${item.id})"
                 class="absolute top-3 left-3 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md text-brand-500 active:scale-110 transition-transform"
@@ -873,11 +880,13 @@
         const key = item.cartKey || item.id;
         const colorDot = item.selectedColor ? `<span style="background:${item.selectedColor};width:10px;height:10px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,0.15);margin-left:3px"></span>` : '';
         const sizeBadge = item.selectedSize ? `<span class="bg-brand-100 text-brand-600 text-[10px] font-bold px-1.5 py-0.5 rounded-full">${item.selectedSize}</span>` : '';
+        const mediaHtml = isVideo(item.image)
+          ? `<video src="${item.image}" autoplay loop muted playsinline class="w-16 h-16 rounded-xl object-cover flex-shrink-0"></video>`
+          : `<img src="${item.image || FALLBACK}" onerror="this.src='${FALLBACK}'" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="${item.name}">`;
+        
         return `
     <div class="flex items-center gap-3 bg-brand-50 rounded-2xl p-3">
-      <img src="${item.image || FALLBACK}"
-           onerror="this.src='${FALLBACK}'"
-           class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="${item.name}">
+      ${mediaHtml}
       <div class="flex-1 min-w-0">
         <h4 class="font-bold text-gray-800 text-sm truncate">${item.name}</h4>
         <div class="flex items-center gap-1 mt-0.5">${colorDot}${sizeBadge}</div>

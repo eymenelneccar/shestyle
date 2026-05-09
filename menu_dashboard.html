@@ -190,8 +190,8 @@
             <input id="fPrice" type="number" min="0" step="0.01" class="input w-full" placeholder="مثال: 18" />
           </div>
           <div>
-            <label class="block text-sm text-gray-700 mb-1">رابط الصورة (اختياري)</label>
-            <input id="fImage" type="text" inputmode="url" class="input w-full" placeholder="https://... أو assets/images/…" />
+            <label class="block text-sm text-gray-700 mb-1">رابط الصورة أو الفيديو (اختياري)</label>
+            <input id="fImage" type="text" inputmode="url" class="input w-full" placeholder="https://... أو assets/images/… أو .mp4" />
             <div class="flex items-center gap-2 mt-2">
               <button type="button" id="btnUploadImage" class="btn btn-outline">رفع صورة</button>
               <span id="uploadStatus" class="text-xs text-gray-500"></span>
@@ -527,7 +527,7 @@
       imageFileInput: (() => {
         const input = document.createElement('input');
         input.type = 'file';
-        input.accept = 'image/*';
+        input.accept = 'image/*,video/*';
         input.className = 'hidden';
         document.body.appendChild(input);
         return input;
