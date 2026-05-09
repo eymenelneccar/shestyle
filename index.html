@@ -952,8 +952,18 @@
       _modalSelectedVariantPrice = null;
 
       const modalImg = document.getElementById('modal-img');
-      modalImg.style.opacity = '1';
-      modalImg.src = item.image || FALLBACK;
+      const modalVid = document.getElementById('modal-vid');
+      if (isVideo(item.image)) {
+        modalImg.classList.add('hidden');
+        modalVid.classList.remove('hidden');
+        modalVid.src = item.image;
+        try { modalVid.play().catch(()=>{}); } catch {}
+      } else {
+        if (modalVid) { modalVid.classList.add('hidden'); modalVid.pause(); }
+        modalImg.classList.remove('hidden');
+        modalImg.style.opacity = '1';
+        modalImg.src = item.image || FALLBACK;
+      }
       document.getElementById('modal-title').textContent = item.name;
       document.getElementById('modal-desc').textContent = item.desc || '';
       document.getElementById('modal-price').textContent = item.price.toLocaleString() + ' ' + currencySymbol;
@@ -1035,6 +1045,8 @@
     function closeImageModal() {
       const modal = document.getElementById('image-modal');
       const content = document.getElementById('image-modal-content');
+      const modalVid = document.getElementById('modal-vid');
+      if (modalVid) modalVid.pause();
       content.style.transform = 'translateY(100%)';
       setTimeout(() => modal.classList.add('hidden'), 320);
     }
