@@ -411,18 +411,21 @@
       class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[32px] shadow-2xl modal-sheet overflow-hidden"
       style="transform:translateY(100%); max-height:92vh">
 
-      <!-- Image -->
+      <!-- Image / Carousel -->
       <div class="relative" style="background:#FDE8F0; width:100%;">
-        <video id="modal-vid" src="" autoplay loop muted playsinline class="w-full object-contain hidden" style="max-height: 65vh;"></video>
-        <img id="modal-img" src="" alt="" class="w-full object-contain hidden" style="max-height: 65vh;"
-          onerror="if(typeof FALLBACK !== 'undefined') { this.src=FALLBACK; this.style.opacity='1'; } else { this.style.background='#FDE8F0'; this.style.opacity='0'; }">
+        <div id="modal-carousel" class="flex overflow-x-auto snap-x snap-mandatory" style="scrollbar-width:none; -ms-overflow-style:none; scroll-behavior: smooth;">
+          <!-- Media items -->
+        </div>
+        <style>#modal-carousel::-webkit-scrollbar { display: none; }</style>
+        <div id="modal-carousel-dots" class="absolute bottom-4 right-4 flex justify-center gap-1.5 pointer-events-none" style="z-index:10; left:auto;"></div>
+
         <!-- Back btn -->
-        <button onclick="closeImageModal()"
+        <button onclick="closeImageModal()" style="z-index:10;"
           class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg text-gray-700 active:scale-90 transition-transform">
           <span class="material-symbols-outlined text-xl">keyboard_arrow_down</span>
         </button>
         <!-- Price badge -->
-        <div
+        <div style="z-index:10;"
           class="absolute bottom-4 left-4 bg-brand-500 text-white font-black text-sm px-4 py-2 rounded-2xl shadow-lg">
           <span id="modal-price"></span>
         </div>
@@ -780,9 +783,10 @@
     }
 
     function buildCard(item) {
-      const mediaHtml = isVideo(item.image)
-        ? `<video src="${item.image}" autoplay loop muted playsinline class="w-full h-full object-cover"></video>`
-        : `<img src="${item.image || FALLBACK}" onerror="this.src='${FALLBACK}'" class="w-full h-full object-cover" loading="lazy" alt="${item.name}">`;
+      const mediaUrl = Array.isArray(item.media) && item.media.length > 0 ? item.media[0] : item.image;
+      const mediaHtml = isVideo(mediaUrl)
+        ? `<video src="${mediaUrl}" autoplay loop muted playsinline class="w-full h-full object-cover"></video>`
+        : `<img src="${mediaUrl || FALLBACK}" onerror="this.src='${FALLBACK}'" class="w-full h-full object-cover" loading="lazy" alt="${item.name}">`;
 
       return `
     <div onclick="openImageModal(${item.id})"
@@ -951,19 +955,42 @@
       _modalSelectedSize = null;
       _modalSelectedVariantPrice = null;
 
-      const modalImg = document.getElementById('modal-img');
-      const modalVid = document.getElementById('modal-vid');
-      if (isVideo(item.image)) {
-        modalImg.classList.add('hidden');
-        modalVid.classList.remove('hidden');
-        modalVid.src = item.image;
-        try { modalVid.play().catch(()=>{}); } catch {}
+      const carousel = document.getElementById('modal-carousel');
+      const dotsContainer = document.getElementById('modal-carousel-dots');
+      carousel.innerHTML = '';
+      dotsContainer.innerHTML = '';
+
+      const mediaUrls = Array.isArray(item.media) && item.media.length > 0 ? item.media : (item.image ? [item.image] : []);
+      if (mediaUrls.length === 0) mediaUrls.push(FALLBACK);
+
+      mediaUrls.forEach((url, idx) => {
+        const slide = document.createElement('div');
+        slide.className = 'w-full flex-shrink-0 snap-center flex justify-center items-center';
+        if (isVideo(url)) {
+          slide.innerHTML = `<video src="${url}" autoplay loop muted playsinline class="w-full object-contain" style="max-height: 65vh;"></video>`;
+        } else {
+          slide.innerHTML = `<img src="${url}" alt="" class="w-full object-contain" style="max-height: 65vh;" onerror="this.src='${FALLBACK}'">`;
+        }
+        carousel.appendChild(slide);
+
+        if (mediaUrls.length > 1) {
+          const dot = document.createElement('div');
+          dot.className = `w-2 h-2 rounded-full transition-all ${idx === 0 ? 'bg-white scale-125' : 'bg-white/50'}`;
+          dotsContainer.appendChild(dot);
+        }
+      });
+
+      if (mediaUrls.length > 1) {
+        carousel.onscroll = () => {
+          const index = Math.round(carousel.scrollLeft / carousel.clientWidth);
+          Array.from(dotsContainer.children).forEach((dot, i) => {
+            dot.className = `w-2 h-2 rounded-full transition-all ${i === index ? 'bg-white scale-125' : 'bg-white/50'}`;
+          });
+        };
       } else {
-        if (modalVid) { modalVid.classList.add('hidden'); modalVid.pause(); }
-        modalImg.classList.remove('hidden');
-        modalImg.style.opacity = '1';
-        modalImg.src = item.image || FALLBACK;
+        carousel.onscroll = null;
       }
+
       document.getElementById('modal-title').textContent = item.name;
       document.getElementById('modal-desc').textContent = item.desc || '';
       document.getElementById('modal-price').textContent = item.price.toLocaleString() + ' ' + currencySymbol;
@@ -1045,8 +1072,10 @@
     function closeImageModal() {
       const modal = document.getElementById('image-modal');
       const content = document.getElementById('image-modal-content');
-      const modalVid = document.getElementById('modal-vid');
-      if (modalVid) modalVid.pause();
+      const carousel = document.getElementById('modal-carousel');
+      if (carousel) {
+        carousel.querySelectorAll('video').forEach(vid => vid.pause());
+      }
       content.style.transform = 'translateY(100%)';
       setTimeout(() => modal.classList.add('hidden'), 320);
     }

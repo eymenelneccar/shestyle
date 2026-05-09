@@ -94,13 +94,16 @@
               <label class="block text-sm text-gray-700 mb-1">السعر ($)</label>
               <input id="fPrice" type="number" min="0" step="0.01" class="input w-full" placeholder="مثال: 18" />
             </div>
-            <div>
-              <label class="block text-sm text-gray-700 mb-1">رابط الصورة أو الفيديو (اختياري)</label>
-              <input id="fImage" type="text" inputmode="url" class="input w-full" placeholder="https://... أو assets/images/… أو .mp4" />
-              <div class="flex items-center gap-2" style="display:flex; gap:.5rem; margin-top:.5rem;">
-                <button type="button" id="btnUploadImage" class="btn btn-outline">رفع صورة</button>
-                <span id="uploadStatus" class="text-xs text-gray-500"></span>
+                    <div style="grid-column:1 / -1; margin-top:.5rem;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:.5rem;">
+                <h3 class="font-bold text-primary" style="margin:0;">الصور والفيديوهات</h3>
+                <div style="display:flex; gap:.5rem; align-items:center;">
+                  <button type="button" id="btnAddMedia" class="btn btn-outline" style="padding:.3rem .6rem; font-size:.85rem;">+ إضافة رابط</button>
+                  <button type="button" id="btnUploadImage" class="btn btn-primary" style="padding:.3rem .6rem; font-size:.85rem;">رفع ملف</button>
+                  <span id="uploadStatus" class="text-xs text-gray-500"></span>
+                </div>
               </div>
+              <div id="mediaList" style="display:flex; flex-direction:column; gap:.5rem;"></div>
             </div>
             <!-- قسم الأحجام والمتغيرات -->
             <div style="grid-column:1 / -1; margin-top:.5rem;">
@@ -177,7 +180,8 @@
       fName: document.getElementById('fName'),
       fCategory: document.getElementById('fCategory'),
       fPrice: document.getElementById('fPrice'),
-      fImage: document.getElementById('fImage'),
+      mediaList: document.getElementById('mediaList'),
+      btnAddMedia: document.getElementById('btnAddMedia'),
       fDesc: document.getElementById('fDesc'),
       btnUploadImage: document.getElementById('btnUploadImage'),
       uploadStatus: document.getElementById('uploadStatus'),
@@ -194,6 +198,18 @@
     function hideConfirm() { els.confirmModal.style.display='none'; els.confirmModal.classList.add('hidden'); }
 
     function fileToDataURL(file) { return new Promise((resolve,reject)=>{ const r=new FileReader(); r.onload=()=>resolve(r.result); r.onerror=reject; r.readAsDataURL(file); }); }
+
+    function addMediaRow(url = '') {
+      const mediaList = document.getElementById('mediaList');
+      if (!mediaList) return;
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'display:flex; align-items:center; gap:4px; background:#F9FAFB; border:1px solid #E5E7EB; border-radius:8px; padding:4px;';
+      wrap.innerHTML = `
+        <input type="text" inputmode="url" class="media-input input" value="${url}" style="flex:1; padding:.4rem;" placeholder="https://... أو assets/... أو .mp4" />
+        <button type="button" style="color:#ef4444; font-size:18px; font-weight:bold; background:none; border:none; cursor:pointer; padding: 0 8px;" onclick="this.parentElement.remove()" title="حذف">×</button>
+      `;
+      mediaList.appendChild(wrap);
+    }
 
     function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
     window.GH_OWNER = window.GH_OWNER || (window.DATA_REPO && window.DATA_REPO.owner) || '';
@@ -260,7 +276,15 @@
       els.fName.value = item?.name || '';
       renderCategoryOptions(item?.category || categories[0] || '');
       els.fPrice.value = item?.price != null ? item.price : '';
-      els.fImage.value = item?.imageUrl || '';
+      
+      els.mediaList.innerHTML = '';
+      const existingMedia = Array.isArray(item?.media) && item.media.length ? item.media : (item?.imageUrl ? [item.imageUrl] : []);
+      if (existingMedia.length) {
+        existingMedia.forEach(url => addMediaRow(url));
+      } else {
+        addMediaRow('');
+      }
+
       els.fDesc.value = item?.description || '';
 
       const colorsList = document.getElementById('colorsList');
@@ -323,7 +347,11 @@
 
     async function uploadImageFile(file) {
       if (!file) return; const original = els.uploadStatus.textContent; els.uploadStatus.textContent='جارِ الرفع...';
-      try { const dataUrl = await fileToDataURL(file); const resp = await fetch(UPLOAD_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json', ...apiAuthHeader()}, body: JSON.stringify({ filename:file.name, data:dataUrl }) }); const json = await resp.json().catch(()=>({})); if (!resp.ok || !json.ok || !json.path) throw new Error(json.error||'فشل الرفع'); els.fImage.value = json.path; els.uploadStatus.textContent='تم الرفع ✓'; } catch { els.uploadStatus.textContent='فشل الرفع'; } finally { setTimeout(()=>{ els.uploadStatus.textContent=original||''; },1500); els.imageFileInput.value=''; }
+      try { const dataUrl = await fileToDataURL(file); const resp = await fetch(UPLOAD_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json', ...apiAuthHeader()}, body: JSON.stringify({ filename:file.name, data:dataUrl }) }); const json = await resp.json().catch(()=>({})); if (!resp.ok || !json.ok || !json.path) throw new Error(json.error||'فشل الرفع'); 
+      const emptyRows = Array.from(els.mediaList.querySelectorAll('.media-input')).filter(inp => !inp.value.trim());
+      emptyRows.forEach(inp => inp.parentElement.remove());
+      addMediaRow(json.path);
+      els.uploadStatus.textContent='تم الرفع ✓'; } catch { els.uploadStatus.textContent='فشل الرفع'; } finally { setTimeout(()=>{ els.uploadStatus.textContent=original||''; },1500); els.imageFileInput.value=''; }
     }
 
     async function saveAllToServer() {
@@ -340,8 +368,16 @@
       const name=els.fName.value.trim();
       const category=els.fCategory.value.trim();
       const price=Number(els.fPrice.value);
-      const imageUrl=els.fImage.value.trim();
       const description=els.fDesc.value.trim();
+
+      const media = [];
+      if (els.mediaList) {
+        els.mediaList.querySelectorAll('.media-input').forEach(inp => {
+          const v = inp.value.trim();
+          if (v) media.push(v);
+        });
+      }
+      const imageUrl = media.length > 0 ? media[0] : '';
 
       const variants = [];
       const variantsList = document.getElementById('variantsList');
@@ -372,10 +408,10 @@
       const finalPrice = Number.isFinite(minVarPrice) ? minVarPrice : (priceIsValid ? price : 0);
 
       if (editingId!=null) {
-        items = items.map(x=> x.id===editingId ? { ...x, name, category, price: finalPrice, imageUrl, description, variants, colors } : x);
+        items = items.map(x=> x.id===editingId ? { ...x, name, category, price: finalPrice, imageUrl, media, description, variants, colors } : x);
       } else {
         const id = Date.now() + Math.floor(Math.random()*1000);
-        items.push({ id, name, category, price: finalPrice, imageUrl, description, variants, colors });
+        items.push({ id, name, category, price: finalPrice, imageUrl, media, description, variants, colors });
       }
       saveData();
       renderItems();
@@ -400,21 +436,27 @@
     });
     els.btnAdd.addEventListener('click',()=> openEditModal(null));
     els.btnCancel.addEventListener('click', closeEditModal);
+    els.btnAddMedia.addEventListener('click', ()=> addMediaRow(''));
     els.btnConfirmDelete.addEventListener('click', async ()=>{ 
       if (pendingDeleteId==null) return; 
       const itemToDelete = items.find(x => x.id === pendingDeleteId);
-      if (itemToDelete && itemToDelete.imageUrl && itemToDelete.imageUrl.includes('assets/')) {
+      const mediaUrls = Array.isArray(itemToDelete?.media) && itemToDelete.media.length ? itemToDelete.media : (itemToDelete?.imageUrl ? [itemToDelete.imageUrl] : []);
+      const assetsToDelete = mediaUrls.filter(url => url && url.includes('assets/'));
+      
+      if (assetsToDelete.length > 0) {
         try {
           const original = els.btnConfirmDelete.textContent;
           els.btnConfirmDelete.textContent = 'جارِ الحذف...';
           els.btnConfirmDelete.disabled = true;
-          let relativePath = itemToDelete.imageUrl.split('assets/')[1];
-          relativePath = 'assets/' + relativePath;
-          await fetch('/api/delete-asset', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', ...apiAuthHeader() },
-            body: JSON.stringify({ path: relativePath })
-          });
+          for (let url of assetsToDelete) {
+            let relativePath = url.split('assets/')[1];
+            relativePath = 'assets/' + relativePath;
+            await fetch('/api/delete-asset', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', ...apiAuthHeader() },
+              body: JSON.stringify({ path: relativePath })
+            });
+          }
           els.btnConfirmDelete.textContent = original;
           els.btnConfirmDelete.disabled = false;
         } catch(e) { console.error('Failed to delete asset', e); }
