@@ -620,7 +620,9 @@
         name: String(i && i.name || '').trim(),
         price: Number(i && i.price) || 0,
         desc: String(i && i.description || i && i.desc || '').trim(),
-        image: resolveAssetUrl(String(i && i.imageUrl || '').trim())
+        image: resolveAssetUrl(String(i && i.imageUrl || '').trim()),
+        colors: Array.isArray(i && i.colors) ? i.colors : [],
+        variants: Array.isArray(i && i.variants) ? i.variants : []
       };
     }
 
